@@ -68,7 +68,7 @@ public final class Registry
 	public static void registerItems(FMLPreInitializationEvent event, Item... items)
 	{
 		Logger logger = LogManager.getLogger(Traps.MODID);
-		logger.info("Registering Blocks:");
+		logger.info("Registering Items:");
 		for (Item item : items)
 		{
 			logger.info("\t" + item.getUnlocalizedName()
