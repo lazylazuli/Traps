@@ -74,7 +74,8 @@ public class RecipeSpikes
 					}
 				}
 				
-				manager.addRecipe(oldColor, recipePattern[1], '#', spike, 'X', new ItemStack(Blocks
+				ItemStack res = new ItemStack(block, 4, dyeColor.getMetadata());
+				manager.addRecipe(res, recipePattern[1], '#', spike, 'X', new ItemStack(Blocks
 						.STAINED_HARDENED_CLAY, 4, dyeColor.getMetadata()));
 			}
 		}
