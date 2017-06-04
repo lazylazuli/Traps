@@ -1,5 +1,6 @@
 package com.github.lazylazuli.traps;
 
+import com.github.lazylazuli.lazylazulilib.Stack;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -53,30 +54,30 @@ final class RecipeSpikes
 			Object toolIngredient = recipeItems[0][i];
 			Block block = (Block) recipeItems[2][i];
 			
-			ItemStack spike = new ItemStack((Item) recipeItems[1][i], 6, 0);
+			ItemStack spike = Stack.of((Item) recipeItems[1][i], 6);
 			
 			manager.addRecipe(spike, recipePattern[0], '#', toolIngredient);
 			
-			ItemStack spikes = new ItemStack(block, 4, 0);
+			ItemStack spikes = Stack.of(block, 4);
 			
 			manager.addRecipe(spikes, recipePattern[1], '#', spike, 'X', Blocks.HARDENED_CLAY);
 			
 			for (EnumDyeColor dyeColor : EnumDyeColor.values())
 			{
-				ItemStack oldColor = new ItemStack(block, 1, dyeColor.getMetadata());
+				ItemStack oldColor = Stack.ofMeta(block, dyeColor.getMetadata());
 				for (EnumDyeColor dyeColor1 : EnumDyeColor.values())
 				{
 					if (dyeColor != dyeColor1)
 					{
-						ItemStack dye = new ItemStack(Items.DYE, 1, dyeColor1.getDyeDamage());
-						ItemStack newBlock = new ItemStack(block, 1, dyeColor1.getMetadata());
+						ItemStack dye = Stack.ofMeta(Items.DYE, dyeColor1.getDyeDamage());
+						ItemStack newBlock = Stack.ofMeta(block, dyeColor1.getMetadata());
 						manager.addShapelessRecipe(newBlock, oldColor, dye);
 					}
 				}
 				
-				ItemStack res = new ItemStack(block, 4, dyeColor.getMetadata());
-				manager.addRecipe(res, recipePattern[1], '#', spike, 'X', new ItemStack(Blocks.STAINED_HARDENED_CLAY,
-						4, dyeColor.getMetadata()));
+				ItemStack coloredSpikes = Stack.of(block, 4, dyeColor.getMetadata());
+				ItemStack clay = Stack.ofMeta(Blocks.STAINED_HARDENED_CLAY, dyeColor.getMetadata());
+				manager.addRecipe(coloredSpikes, recipePattern[1], '#', spike, 'X', clay);
 			}
 		}
 	}

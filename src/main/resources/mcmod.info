@@ -11,6 +11,8 @@
   "credits": "",
   "logoFile": "",
   "screenshots": [],
-  "dependencies": []
+  "requiredMods": [ "lazylazulilib" ],
+  "dependencies": [ "lazylazulilib" ],
+  "useDependencyInformation": true
 }
 ]
