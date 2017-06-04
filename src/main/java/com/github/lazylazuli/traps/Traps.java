@@ -13,13 +13,13 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-@Mod(modid = Traps.MODID, version = Traps.VERSION, acceptedMinecraftVersions = Traps.MCVERSION, dependencies =
-		"required-after:lazylazulilib")
+@Mod(modid = Traps.MODID, version = Traps.VERSION, acceptedMinecraftVersions = Traps.MCVERSION, dependencies = "required-after:lazylazulilib", updateJSON = Traps.UPDATE)
 public final class Traps
 {
 	public static final String MODID = "traps";
 	public static final String VERSION = "@version@";
 	public static final String MCVERSION = "@mcversion@";
+	public static final String UPDATE = "https://github.com/lazylazuli/Traps/releases/download/Latest/update.json";
 	
 	@Mod.Instance
 	public static Traps instance;
