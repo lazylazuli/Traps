@@ -19,7 +19,7 @@ public final class Traps
 	public static final String MODID = "traps";
 	public static final String VERSION = "@version@";
 	public static final String MCVERSION = "@mcversion@";
-	public static final String UPDATE = "https://github.com/lazylazuli/Traps/releases/download/Latest/update.json";
+	public static final String UPDATE = "@update@";
 	
 	@Mod.Instance
 	public static Traps instance;
