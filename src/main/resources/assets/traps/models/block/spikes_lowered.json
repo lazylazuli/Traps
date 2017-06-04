@@ -1,0 +1,161 @@
+{
+	"parent": "block/thin_block",
+	"elements": [
+		{
+			"from": [ 0, 0, 0 ],
+			"to": [ 16, 8, 16 ],
+			"faces": {
+				"down": { "texture": "#slab" },
+				"up": { "texture": "#slab" },
+				"north": { "texture": "#slab" },
+				"south": { "texture": "#slab" },
+				"west": { "texture": "#slab" },
+				"east": { "texture": "#slab" }
+			}
+		},
+		{
+			"from": [ 2, 7.5, 1.5 ],
+			"to": [ 2, 8.5, 2.5 ],
+			"rotation": { "origin": [ 2, 8, 2 ], "axis": "x", "angle": 45, "rescale": true },
+			"faces": {
+				"west": { "texture": "#spike" },
+				"east": { "texture": "#spike" }
+			}
+		},
+		{
+			"from": [ 1.5, 7.5, 2 ],
+			"to": [ 2.5, 8.5, 2 ],
+			"rotation": { "origin": [ 2, 8, 2 ], "axis": "z", "angle": 45, "rescale": true },
+			"faces": {
+				"north": { "texture": "#spike" },
+				"south": { "texture": "#spike" }
+			}
+		},
+		{
+			"from": [ 10, 7.5, 1.5 ],
+			"to": [ 10, 8.5, 2.5 ],
+			"rotation": { "origin": [ 10, 8, 2 ], "axis": "x", "angle": 45, "rescale": true },
+			"faces": {
+				"west": { "texture": "#spike" },
+				"east": { "texture": "#spike" }
+			}
+		},
+		{
+			"from": [ 9.5, 7.5, 2 ],
+			"to": [ 10.5, 8.5, 2 ],
+			"rotation": { "origin": [ 10, 8, 2 ], "axis": "z", "angle": 45, "rescale": true },
+			"faces": {
+				"north": { "texture": "#spike" },
+				"south": { "texture": "#spike" }
+			}
+		},
+		{
+			"from": [ 2, 7.5, 9.5 ],
+			"to": [ 2, 8.5, 10.5 ],
+			"rotation": { "origin": [ 2, 8, 10 ], "axis": "x", "angle": 45, "rescale": true },
+			"faces": {
+				"west": { "texture": "#spike" },
+				"east": { "texture": "#spike" }
+			}
+		},
+		{
+			"from": [ 1.5, 7.5, 10 ],
+			"to": [ 2.5, 8.5, 10 ],
+			"rotation": { "origin": [ 2, 8, 10 ], "axis": "z", "angle": 45, "rescale": true },
+			"faces": {
+				"north": { "texture": "#spike" },
+				"south": { "texture": "#spike" }
+			}
+		},
+		{
+			"from": [ 10, 7.5, 9.5 ],
+			"to": [ 10, 8.5, 10.5 ],
+			"rotation": { "origin": [ 10, 8, 10 ], "axis": "x", "angle": 45, "rescale": true },
+			"faces": {
+				"west": { "texture": "#spike" },
+				"east": { "texture": "#spike" }
+			}
+		},
+		{
+			"from": [ 9.5, 7.5, 10 ],
+			"to": [ 10.5, 8.5, 10 ],
+			"rotation": { "origin": [ 10, 8, 10 ], "axis": "z", "angle": 45, "rescale": true },
+			"faces": {
+				"north": { "texture": "#spike" },
+				"south": { "texture": "#spike" }
+			}
+		},
+		{
+			"from": [ 6, 7.5, 5.5 ],
+			"to": [ 6, 8.5, 6.5 ],
+			"rotation": { "origin": [ 6, 8, 6 ], "axis": "x", "angle": 45, "rescale": true },
+			"faces": {
+				"west": { "texture": "#spike" },
+				"east": { "texture": "#spike" }
+			}
+		},
+		{
+			"from": [ 5.5, 7.5, 6 ],
+			"to": [ 6.5, 8.5, 6 ],
+			"rotation": { "origin": [ 6, 8, 6 ], "axis": "z", "angle": 45, "rescale": true },
+			"faces": {
+				"north": { "texture": "#spike" },
+				"south": { "texture": "#spike" }
+			}
+		},
+		{
+			"from": [ 14, 7.5, 5.5 ],
+			"to": [ 14, 8.5, 6.5 ],
+			"rotation": { "origin": [ 14, 8, 6 ], "axis": "x", "angle": 45, "rescale": true },
+			"faces": {
+				"west": { "texture": "#spike" },
+				"east": { "texture": "#spike" }
+			}
+		},
+		{
+			"from": [ 13.5, 7.5, 6 ],
+			"to": [ 14.5, 8.5, 6 ],
+			"rotation": { "origin": [ 14, 8, 6 ], "axis": "z", "angle": 45, "rescale": true },
+			"faces": {
+				"north": { "texture": "#spike" },
+				"south": { "texture": "#spike" }
+			}
+		},
+		{
+			"from": [ 6, 7.5, 13.5 ],
+			"to": [ 6, 8.5, 14.5 ],
+			"rotation": { "origin": [ 6, 8, 14 ], "axis": "x", "angle": 45, "rescale": true },
+			"faces": {
+				"west": { "texture": "#spike" },
+				"east": { "texture": "#spike" }
+			}
+		},
+		{
+			"from": [ 5.5, 7.5, 14 ],
+			"to": [ 6.5, 8.5, 14 ],
+			"rotation": { "origin": [ 6, 8, 14 ], "axis": "z", "angle": 45, "rescale": true },
+			"faces": {
+				"north": { "texture": "#spike" },
+				"south": { "texture": "#spike" }
+			}
+		},
+		{
+			"from": [ 14, 7.5, 13.5 ],
+			"to": [ 14, 8.5, 14.5 ],
+			"rotation": { "origin": [ 14, 8, 14 ], "axis": "x", "angle": 45, "rescale": true },
+			"faces": {
+				"west": { "texture": "#spike" },
+				"east": { "texture": "#spike" }
+			}
+		},
+		{
+			"from": [ 13.5, 7.5, 14 ],
+			"to": [ 14.5, 8.5, 14 ],
+			"rotation": { "origin": [ 14, 8, 14 ], "axis": "z", "angle": 45, "rescale": true },
+			"faces": {
+				"north": { "texture": "#spike" },
+				"south": { "texture": "#spike" }
+			}
+		}
+	]
+}
