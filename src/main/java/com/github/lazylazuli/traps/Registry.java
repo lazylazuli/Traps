@@ -7,6 +7,7 @@ import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -14,12 +15,15 @@ import net.minecraftforge.fml.relauncher.Side;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javax.annotation.Nonnull;
+
 public final class Registry
 {
 	public static CreativeTabs newCreativeTab(String label, Item icon)
 	{
 		return new CreativeTabs(label)
 		{
+			@Nonnull
 			@Override
 			public ItemStack getTabIconItem()
 			{
@@ -28,7 +32,7 @@ public final class Registry
 		};
 	}
 	
-	public static void registerBlocks(FMLPreInitializationEvent event, Block... blocks)
+	static void registerBlocks(FMLPreInitializationEvent event, Block... blocks)
 	{
 		Logger logger = LogManager.getLogger(Traps.MODID);
 		logger.info("Registering Blocks:");
@@ -58,14 +62,19 @@ public final class Registry
 				}
 				
 				GameRegistry.register(block);
-				GameRegistry.register(itemBlock, block.getRegistryName());
-				ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation
-						(block.getRegistryName(), "inventory"));
+				
+				ResourceLocation resourceLocation = block.getRegistryName();
+				if (resourceLocation != null)
+				{
+					GameRegistry.register(itemBlock, resourceLocation);
+					ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new
+							ModelResourceLocation(resourceLocation, "inventory"));
+				}
 			}
 		}
 	}
 	
-	public static void registerItems(FMLPreInitializationEvent event, Item... items)
+	static void registerItems(FMLPreInitializationEvent event, Item... items)
 	{
 		Logger logger = LogManager.getLogger(Traps.MODID);
 		logger.info("Registering Items:");
@@ -76,8 +85,13 @@ public final class Registry
 			if (event.getSide() == Side.CLIENT)
 			{
 				GameRegistry.register(item);
-				ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(),
-						"inventory"));
+				
+				ResourceLocation resourceLocation = item.getRegistryName();
+				if (resourceLocation != null)
+				{
+					ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(resourceLocation,
+							"inventory"));
+				}
 			}
 		}
 	}

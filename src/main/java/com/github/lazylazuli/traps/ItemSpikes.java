@@ -7,65 +7,97 @@ import net.minecraft.init.Enchantments;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemColored;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.List;
 
 public class ItemSpikes extends ItemColored
 {
-	public ItemSpikes(BlockSpikes blockSpikes)
+	ItemSpikes(BlockSpikes blockSpikes)
 	{
 		super(blockSpikes, true);
+		
+		setCreativeTab(CreativeTabs.COMBAT);
 		setSubtypeNames(Arrays.stream(EnumDyeColor.values())
 							  .map(EnumDyeColor::getUnlocalizedName)
 							  .toArray(String[]::new));
-		setCreativeTab(CreativeTabs.COMBAT);
+		
 		maxStackSize = 16;
 	}
 	
+	@Nonnull
 	@Override
-	public String getHighlightTip(ItemStack item, String displayName)
+	public String getHighlightTip(ItemStack item, @Nonnull String displayName)
 	{
-		if (item.hasTagCompound() && item.getTagCompound()
-										 .hasKey("ToolDamage"))
+		NBTTagCompound compound = item.getTagCompound();
+		
+		if (compound != null && compound.hasKey("ToolDamage"))
 		{
 			int max = getToolMaterial().getMaxUses();
 			int dmg = max - item.getTagCompound()
 								.getInteger("ToolDamage");
+			
 			return displayName + " (" + dmg + "/" + max + ")";
+		} else
+		{
+			return displayName;
 		}
-		return displayName;
 	}
 	
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced)
+	public void addInformation(@Nullable ItemStack stack, @Nullable EntityPlayer playerIn, @Nullable List<String>
+			tooltip, boolean advanced)
 	{
-		if (stack.hasTagCompound() && stack.getTagCompound()
-										   .hasKey("ToolDamage"))
+		if (tooltip == null)
 		{
-			int max = getToolMaterial().getMaxUses();
-			int dmg = max - stack.getTagCompound()
-								 .getInteger("ToolDamage");
-			tooltip.add("Damage: " + dmg + "/" + max + "");
+			return;
 		}
+		
+		if (stack != null)
+		{
+			NBTTagCompound compound = stack.getTagCompound();
+			
+			if (compound != null && compound.hasKey("ToolDamage"))
+			{
+				int max = getToolMaterial().getMaxUses();
+				int dmg = max - stack.getTagCompound()
+									 .getInteger("ToolDamage");
+				tooltip.add("Damage: " + dmg + "/" + max + "");
+			}
+		}
+		
 		super.addInformation(stack, playerIn, tooltip, advanced);
 	}
 	
-	public ToolMaterial getToolMaterial()
+	private ToolMaterial getToolMaterial()
 	{
 		return ((BlockSpikes) block).getToolMaterial();
 	}
 	
-	public boolean isEnchantable(ItemStack stack)
+	@Override
+	public boolean isEnchantable(@Nonnull ItemStack stack)
 	{
 		return stack.getItem() instanceof ItemSpikes;
 	}
 	
-	public String getUnlocalizedName(ItemStack stack)
+	@Nonnull
+	@Override
+	public String getUnlocalizedName(@Nullable ItemStack stack)
 	{
-		return block.getUnlocalizedName() + "." + EnumDyeColor.byMetadata(stack.getMetadata());
+		String s = block.getUnlocalizedName();
+		
+		if (stack != null)
+		{
+			s += "." + EnumDyeColor.byMetadata(stack.getMetadata());
+		}
+		
+		return s;
 	}
 	
+	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack, net.minecraft.enchantment.Enchantment enchantment)
 	{
 		return enchantment == Enchantments.BANE_OF_ARTHROPODS || enchantment == Enchantments.BLAST_PROTECTION ||
@@ -73,14 +105,15 @@ public class ItemSpikes extends ItemColored
 				Enchantments.SMITE || enchantment == Enchantments.UNBREAKING;
 	}
 	
+	@Override
 	public boolean canHarvestBlock(IBlockState blockIn)
 	{
 		return false;
 	}
 	
+	@Override
 	public int getItemEnchantability()
 	{
-		return ((BlockSpikes) block).getToolMaterial()
-									.getEnchantability();
+		return getToolMaterial().getEnchantability();
 	}
 }

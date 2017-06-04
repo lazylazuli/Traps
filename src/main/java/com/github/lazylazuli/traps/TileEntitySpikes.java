@@ -17,6 +17,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.NonNullList;
 
+import javax.annotation.Nonnull;
 import java.util.Random;
 
 public class TileEntitySpikes extends TileEntity implements ITickable
@@ -37,7 +38,7 @@ public class TileEntitySpikes extends TileEntity implements ITickable
 	
 	private int damage;
 	
-	public int getBlastResistance()
+	int getBlastResistance()
 	{
 		return blast;
 	}
@@ -46,28 +47,35 @@ public class TileEntitySpikes extends TileEntity implements ITickable
 	public void update()
 	{
 		if (damageCooldown > 0)
-			damageCooldown--;
-	}
-	
-	ItemStack getItemDropped()
-	{
-		ItemStack stack = inventory.get(0);
-		if (stack.hasTagCompound())
 		{
-			stack.getTagCompound()
-				 .setInteger("ToolDamage", damage);
+			damageCooldown--;
 		}
-		return stack;
 	}
 	
 	void initializeStack(ItemStack stack)
 	{
 		inventory.set(0, stack.copy());
 		
-		if (!stack.isItemEnchanted())
+		NBTTagCompound compound = stack.getTagCompound();
+		
+		if (compound == null)
+		{
 			return;
+		}
+		
+		if (compound.hasKey("ToolDamage"))
+		{
+			damage = stack.getTagCompound()
+						  .getInteger("ToolDamage");
+		}
 		
 		NBTTagList list = stack.getEnchantmentTagList();
+		
+		if (list == null)
+		{
+			return;
+		}
+		
 		for (int i = 0; i < list.tagCount(); i++)
 		{
 			NBTTagCompound ench = (NBTTagCompound) list.get(i);
@@ -92,6 +100,27 @@ public class TileEntitySpikes extends TileEntity implements ITickable
 				smite = lvl;
 			}
 		}
+	}
+	
+	ItemStack getItemDropped()
+	{
+		ItemStack stack = inventory.get(0)
+								   .copy();
+		
+		if (damage > 0)
+		{
+			NBTTagCompound compound = stack.getTagCompound();
+			
+			if (compound == null)
+			{
+				compound = new NBTTagCompound();
+				stack.setTagCompound(compound);
+			}
+			
+			compound.setInteger("ToolDamage", damage);
+		}
+		
+		return stack;
 	}
 	
 	private Item.ToolMaterial getToolMaterial()
@@ -136,8 +165,12 @@ public class TileEntitySpikes extends TileEntity implements ITickable
 		if (!entityIn.isSneaking())
 		{
 			entityIn.attackEntityFrom(DamageSource.CACTUS, getDamageMultiplier(entityIn));
+			
 			if (!world.isRaining())
+			{
 				entityIn.setFire(((int) getToolMaterial().getDamageVsEntity() + 1) * fire);
+			}
+			
 			damageBlock(1);
 		}
 	}
@@ -145,15 +178,19 @@ public class TileEntitySpikes extends TileEntity implements ITickable
 	private void damageBlock(int dmg)
 	{
 		if (damageCooldown > 0)
-			return;
-		
-		boolean isBroken = attemptDamageItem(dmg, world.rand);
-		if (isBroken)
 		{
-			world.setBlockState(pos, Blocks.STONE_SLAB.getDefaultState());
+			return;
 		}
 		
+		boolean isBroken = attemptDamageItem(dmg, world.rand);
+		
 		damageCooldown = 8;
+		markDirty();
+		
+		if (isBroken)
+		{
+			world.setBlockState(pos, Blocks.AIR.getDefaultState());
+		}
 	}
 	
 	private boolean attemptDamageItem(int amount, Random rand)
@@ -188,19 +225,26 @@ public class TileEntitySpikes extends TileEntity implements ITickable
 	public void readFromNBT(NBTTagCompound compound)
 	{
 		super.readFromNBT(compound);
+		
 		ItemStackHelper.loadAllItems(compound, inventory);
+		
 		initializeStack(inventory.get(0));
+		
 		damageCooldown = compound.getInteger("DamageCooldown");
 		damage = compound.getInteger("Damage");
 	}
 	
+	@Nonnull
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound compound)
 	{
 		super.writeToNBT(compound);
+		
 		ItemStackHelper.saveAllItems(compound, inventory);
+		
 		compound.setInteger("DamageCooldown", damageCooldown);
 		compound.setInteger("Damage", damage);
+		
 		return compound;
 	}
 }

@@ -25,6 +25,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 public class BlockSpikes extends BlockColored implements ITileEntityProvider
@@ -36,22 +37,27 @@ public class BlockSpikes extends BlockColored implements ITileEntityProvider
 	BlockSpikes(String name, Material material, SoundType sound, Item.ToolMaterial toolMaterial)
 	{
 		super(material);
+		
 		setRegistryName(name);
 		setUnlocalizedName(name);
-		setHardness(1.5f);
-		setResistance(10);
+		setHardness(1.25f);
+		setResistance(7);
 		setSoundType(sound);
 		setCreativeTab(CreativeTabs.COMBAT);
+		
 		this.toolMaterial = toolMaterial;
 	}
 	
+	@Nonnull
 	@Override
-	public float getExplosionResistance(Entity exploder)
+	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY,
+											float hitZ, int meta, EntityLivingBase placer)
 	{
-		return blockResistance / 5.0F;
+		return getDefaultState().withProperty(COLOR, EnumDyeColor.byMetadata(meta));
 	}
 	
-	public float getExplosionResistance(World world, BlockPos pos, Entity exploder, Explosion explosion)
+	@Override
+	public float getExplosionResistance(World world, BlockPos pos, @Nonnull Entity exploder, Explosion explosion)
 	{
 		TileEntity te = world.getTileEntity(pos);
 		
@@ -63,13 +69,7 @@ public class BlockSpikes extends BlockColored implements ITileEntityProvider
 		return getExplosionResistance(exploder);
 	}
 	
-	@Override
-	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY,
-											float hitZ, int meta, EntityLivingBase placer)
-	{
-		return getDefaultState().withProperty(COLOR, EnumDyeColor.byMetadata(meta));
-	}
-	
+	@Nonnull
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
 	{
@@ -89,12 +89,14 @@ public class BlockSpikes extends BlockColored implements ITileEntityProvider
 	}
 	
 	@SideOnly(Side.CLIENT)
+	@Nonnull
 	@Override
 	public BlockRenderLayer getBlockLayer()
 	{
 		return BlockRenderLayer.CUTOUT_MIPPED;
 	}
 	
+	@Nonnull
 	@Override
 	public EnumBlockRenderType getRenderType(IBlockState state)
 	{
@@ -104,11 +106,12 @@ public class BlockSpikes extends BlockColored implements ITileEntityProvider
 	// BLOCKCONTAINER
 	
 	@Override
-	public void dropBlockAsItemWithChance(World worldIn, BlockPos pos, IBlockState state, float chance, int fortune) {}
+	public void dropBlockAsItemWithChance(World worldIn, @Nonnull BlockPos pos, @Nonnull IBlockState state, float
+			chance, int fortune) {}
 	
 	@Override
-	public void harvestBlock(World worldIn, EntityPlayer player, BlockPos pos, IBlockState state, @Nullable TileEntity
-			te, ItemStack stack)
+	public void harvestBlock(@Nonnull World worldIn, EntityPlayer player, @Nonnull BlockPos pos, @Nonnull IBlockState
+			state, @Nullable TileEntity te, ItemStack stack)
 	{
 		super.harvestBlock(worldIn, player, pos, state, te, stack);
 		
@@ -123,7 +126,9 @@ public class BlockSpikes extends BlockColored implements ITileEntityProvider
 	public boolean eventReceived(IBlockState state, World worldIn, BlockPos pos, int id, int param)
 	{
 		super.eventReceived(state, worldIn, pos, id, param);
+		
 		TileEntity tileentity = worldIn.getTileEntity(pos);
+		
 		return tileentity != null && tileentity.receiveClientEvent(id, param);
 	}
 	
@@ -138,23 +143,29 @@ public class BlockSpikes extends BlockColored implements ITileEntityProvider
 	public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance)
 	{
 		TileEntity te = worldIn.getTileEntity(pos);
+		
 		if (te != null && te instanceof TileEntitySpikes)
+		{
 			((TileEntitySpikes) te).onFallenUpon(entityIn, fallDistance);
+		}
 	}
 	
 	@Override
 	public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn)
 	{
 		TileEntity te = worldIn.getTileEntity(pos);
+		
 		if (te != null && te instanceof TileEntitySpikes)
+		{
 			((TileEntitySpikes) te).onEntityWalk(entityIn);
+		}
 	}
 	
 	// ENCHANTMENT
 	
 	@Nullable
 	@Override
-	public TileEntity createNewTileEntity(World worldIn, int meta)
+	public TileEntity createNewTileEntity(@Nonnull World worldIn, int meta)
 	{
 		return new TileEntitySpikes();
 	}
@@ -164,7 +175,10 @@ public class BlockSpikes extends BlockColored implements ITileEntityProvider
 			stack)
 	{
 		TileEntity te = worldIn.getTileEntity(pos);
+		
 		if (te != null && te instanceof TileEntitySpikes)
+		{
 			((TileEntitySpikes) te).initializeStack(stack);
+		}
 	}
 }

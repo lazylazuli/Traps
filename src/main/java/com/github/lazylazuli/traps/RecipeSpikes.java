@@ -8,46 +8,46 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 
-public class RecipeSpikes
+final class RecipeSpikes
 {
-	private final String[][] recipePattern = new String[][] {
-			new String[] {
-					" # ",
-					"# #"
-			},
-			new String[] {
-					"X#X",
-					"#X#",
-					"X#X"
-			}
-	};
-	
-	private final Object[][] recipeItems = new Object[][] {
-			{
-					Blocks.PLANKS,
-					Blocks.COBBLESTONE,
-					Items.IRON_INGOT,
-					Items.DIAMOND,
-					Items.GOLD_INGOT
-			},
-			{
-					Traps.WOODEN_SPIKE,
-					Traps.STONE_SPIKE,
-					Traps.IRON_SPIKE,
-					Traps.DIAMOND_SPIKE,
-					Traps.GOLDEN_SPIKE
-			},
-			{
-					Traps.WOODEN_SPIKES,
-					Traps.STONE_SPIKES,
-					Traps.IRON_SPIKES,
-					Traps.DIAMOND_SPIKES,
-					Traps.GOLDEN_SPIKES
-			}
-	};
-	
-	void addRecipes(CraftingManager manager)
+	static void addRecipes(CraftingManager manager)
 	{
+		String[][] recipePattern = new String[][] {
+				new String[] {
+						" # ",
+						"# #"
+				},
+				new String[] {
+						"X#X",
+						"#X#",
+						"X#X"
+				}
+		};
+		
+		Object[][] recipeItems = new Object[][] {
+				{
+						Blocks.PLANKS,
+						Blocks.COBBLESTONE,
+						Items.IRON_INGOT,
+						Items.DIAMOND,
+						Items.GOLD_INGOT
+				},
+				{
+						Traps.WOODEN_SPIKE,
+						Traps.STONE_SPIKE,
+						Traps.IRON_SPIKE,
+						Traps.DIAMOND_SPIKE,
+						Traps.GOLDEN_SPIKE
+				},
+				{
+						Traps.WOODEN_SPIKES,
+						Traps.STONE_SPIKES,
+						Traps.IRON_SPIKES,
+						Traps.DIAMOND_SPIKES,
+						Traps.GOLDEN_SPIKES
+				}
+		};
+		
 		for (int i = 0; i < recipeItems[0].length; ++i)
 		{
 			Object toolIngredient = recipeItems[0][i];
@@ -75,8 +75,8 @@ public class RecipeSpikes
 				}
 				
 				ItemStack res = new ItemStack(block, 4, dyeColor.getMetadata());
-				manager.addRecipe(res, recipePattern[1], '#', spike, 'X', new ItemStack(Blocks
-						.STAINED_HARDENED_CLAY, 4, dyeColor.getMetadata()));
+				manager.addRecipe(res, recipePattern[1], '#', spike, 'X', new ItemStack(Blocks.STAINED_HARDENED_CLAY,
+						4, dyeColor.getMetadata()));
 			}
 		}
 	}
