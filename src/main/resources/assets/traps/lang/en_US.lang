@@ -1,3 +1,5 @@
+itemGroup.traps=Traps
+
 item.wooden_spike.name=Wooden Spike
 item.stone_spike.name=Stone Spike
 item.iron_spike.name=Iron Spike

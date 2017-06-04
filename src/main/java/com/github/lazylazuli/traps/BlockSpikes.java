@@ -5,7 +5,6 @@ import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -43,7 +42,6 @@ public class BlockSpikes extends BlockColored implements ITileEntityProvider
 		setHardness(1.25f);
 		setResistance(7);
 		setSoundType(sound);
-		setCreativeTab(CreativeTabs.COMBAT);
 		
 		this.toolMaterial = toolMaterial;
 	}
