@@ -1,0 +1,7 @@
+{
+	"parent": "traps:block/stone_spikes",
+	"textures": {
+		"particle": "blocks/hardened_clay_stained_red",
+		"slab": "blocks/hardened_clay_stained_red"
+	}
+}

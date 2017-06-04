@@ -1,0 +1,16 @@
+[
+{
+  "modid": "traps",
+  "name": "Lazy Lazuli's Traps",
+  "description": "Simple traps mod. Kill your unsuspecting enemies with spikes!",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://minecraft.curseforge.com/projects/lazy-lazulis-traps",
+  "updateUrl": "",
+  "authorList": ["LazyLazuli"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

@@ -1,0 +1,7 @@
+{
+	"parent": "traps:block/golden_spikes",
+	"textures": {
+		"particle": "blocks/hardened_clay_stained_pink",
+		"slab": "blocks/hardened_clay_stained_pink"
+	}
+}

@@ -1,0 +1,6 @@
+{
+	"parent": "traps:block/spikes",
+	"textures": {
+		"spike": "blocks/diamond_block"
+	}
+}
