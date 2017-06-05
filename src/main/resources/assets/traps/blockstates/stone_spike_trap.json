@@ -1,0 +1,106 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+      "model": "traps:stone_spike_trap"
+	},
+	"variants": {
+		"color": {
+			"black": {
+				"textures": {
+					"particle": "blocks/hardened_clay_stained_black",
+					"slab": "blocks/hardened_clay_stained_black"
+				}
+			},
+			"blue": {
+				"textures": {
+					"particle": "blocks/hardened_clay_stained_blue",
+					"slab": "blocks/hardened_clay_stained_blue"
+				}
+			},
+			"brown": {
+				"textures": {
+					"particle": "blocks/hardened_clay_stained_brown",
+					"slab": "blocks/hardened_clay_stained_brown"
+				}
+			},
+			"cyan": {
+				"textures": {
+					"particle": "blocks/hardened_clay_stained_cyan",
+					"slab": "blocks/hardened_clay_stained_cyan"
+				}
+			},
+			"gray": {
+				"textures": {
+					"particle": "blocks/hardened_clay_stained_gray",
+					"slab": "blocks/hardened_clay_stained_gray"
+				}
+			},
+			"green": {
+				"textures": {
+					"particle": "blocks/hardened_clay_stained_green",
+					"slab": "blocks/hardened_clay_stained_green"
+				}
+			},
+			"light_blue": {
+				"textures": {
+					"particle": "blocks/hardened_clay_stained_light_blue",
+					"slab": "blocks/hardened_clay_stained_light_blue"
+				}
+			},
+			"lime": {
+				"textures": {
+					"particle": "blocks/hardened_clay_stained_lime",
+					"slab": "blocks/hardened_clay_stained_lime"
+				}
+			},
+			"magenta": {
+				"textures": {
+					"particle": "blocks/hardened_clay_stained_magenta",
+					"slab": "blocks/hardened_clay_stained_magenta"
+				}
+			},
+			"orange": {
+				"textures": {
+					"particle": "blocks/hardened_clay_stained_orange",
+					"slab": "blocks/hardened_clay_stained_orange"
+				}
+			},
+			"pink": {
+				"textures": {
+					"particle": "blocks/hardened_clay_stained_pink",
+					"slab": "blocks/hardened_clay_stained_pink"
+				}
+			},
+			"purple": {
+				"textures": {
+					"particle": "blocks/hardened_clay_stained_purple",
+					"slab": "blocks/hardened_clay_stained_purple"
+				}
+			},
+			"red": {
+				"textures": {
+					"particle": "blocks/hardened_clay_stained_red",
+					"slab": "blocks/hardened_clay_stained_red"
+				}
+			},
+			"silver": {
+				"textures": {
+					"particle": "blocks/hardened_clay_stained_silver",
+					"slab": "blocks/hardened_clay_stained_silver"
+				}
+			},
+			"white": {
+				"textures": {
+					"particle": "blocks/hardened_clay_stained_white",
+					"slab": "blocks/hardened_clay_stained_white"
+				}
+			},
+			"yellow": {
+				"textures": {
+					"particle": "blocks/hardened_clay_stained_yellow",
+					"slab": "blocks/hardened_clay_stained_yellow"
+				}
+			}
+		}
+	}
+}

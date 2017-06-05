@@ -125,7 +125,7 @@ public class TileEntitySpikes extends TileEntity implements ITickable
 	
 	private Item.ToolMaterial getToolMaterial()
 	{
-		return ((BlockSpikes) getBlockType()).getToolMaterial();
+		return ((BlockSpikeTrap) getBlockType()).getToolMaterial();
 	}
 	
 	private float getDamageMultiplier(Entity entityIn)

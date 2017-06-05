@@ -24,11 +24,11 @@ public final class Traps
 	@Mod.Instance
 	public static Traps instance;
 	
-	public static final BlockSpikes WOODEN_SPIKES = createSpikes("wooden_spikes", Item.ToolMaterial.WOOD);
-	public static final BlockSpikes STONE_SPIKES = createSpikes("stone_spikes", Item.ToolMaterial.STONE);
-	public static final BlockSpikes IRON_SPIKES = createSpikes("iron_spikes", Item.ToolMaterial.IRON);
-	public static final BlockSpikes DIAMOND_SPIKES = createSpikes("diamond_spikes", Item.ToolMaterial.DIAMOND);
-	public static final BlockSpikes GOLDEN_SPIKES = createSpikes("golden_spikes", Item.ToolMaterial.GOLD);
+	public static final BlockSpikeTrap WOODEN_SPIKES = createSpikes("wooden_spike_trap", Item.ToolMaterial.WOOD);
+	public static final BlockSpikeTrap STONE_SPIKES = createSpikes("stone_spike_trap", Item.ToolMaterial.STONE);
+	public static final BlockSpikeTrap IRON_SPIKES = createSpikes("iron_spike_trap", Item.ToolMaterial.IRON);
+	public static final BlockSpikeTrap DIAMOND_SPIKES = createSpikes("diamond_spike_trap", Item.ToolMaterial.DIAMOND);
+	public static final BlockSpikeTrap GOLDEN_SPIKES = createSpikes("golden_spike_trap", Item.ToolMaterial.GOLD);
 	
 	public static final ItemBlock ITEM_WOODEN_SPIKES = new ItemSpikes(WOODEN_SPIKES);
 	public static final ItemBlock ITEM_STONE_SPIKES = new ItemSpikes(STONE_SPIKES);
@@ -57,9 +57,9 @@ public final class Traps
 		return item;
 	}
 	
-	private static BlockSpikes createSpikes(String name, Item.ToolMaterial material)
+	private static BlockSpikeTrap createSpikes(String name, Item.ToolMaterial material)
 	{
-		return new BlockSpikes(name, Material.ROCK, SoundType.STONE, material);
+		return new BlockSpikeTrap(name, Material.ROCK, SoundType.STONE, material);
 	}
 	
 	@EventHandler
@@ -74,8 +74,8 @@ public final class Traps
 		DIAMOND_SPIKES.setCreativeTab(TAB_TRAPS);
 		GOLDEN_SPIKES.setCreativeTab(TAB_TRAPS);
 		
-		GameRegistry.registerTileEntity(TileEntitySpikes.class, "tileentityspikes");
+		GameRegistry.registerTileEntity(TileEntitySpikes.class, "tileentityspiketrap");
 		
-		RecipeSpikes.addRecipes(CraftingManager.getInstance());
+		RecipeSpikeTrap.addRecipes(CraftingManager.getInstance());
 	}
 }

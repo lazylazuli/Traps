@@ -1,0 +1,7 @@
+{
+  "parent": "traps:block/golden_spike_trap",
+	"textures": {
+		"particle": "blocks/hardened_clay_stained_black",
+		"slab": "blocks/hardened_clay_stained_black"
+	}
+}

@@ -16,9 +16,9 @@ import java.util.List;
 
 public class ItemSpikes extends ItemColored
 {
-	ItemSpikes(BlockSpikes blockSpikes)
+	ItemSpikes(BlockSpikeTrap blockSpikeTrap)
 	{
-		super(blockSpikes, true);
+		super(blockSpikeTrap, true);
 		
 		setCreativeTab(CreativeTabs.COMBAT);
 		setSubtypeNames(Arrays.stream(EnumDyeColor.values())
@@ -74,7 +74,7 @@ public class ItemSpikes extends ItemColored
 	
 	private ToolMaterial getToolMaterial()
 	{
-		return ((BlockSpikes) block).getToolMaterial();
+		return ((BlockSpikeTrap) block).getToolMaterial();
 	}
 	
 	@Override

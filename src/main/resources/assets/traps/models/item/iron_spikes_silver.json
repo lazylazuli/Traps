@@ -1,7 +1,0 @@
-{
-	"parent": "traps:block/iron_spikes",
-	"textures": {
-		"particle": "blocks/hardened_clay_stained_silver",
-		"slab": "blocks/hardened_clay_stained_silver"
-	}
-}
