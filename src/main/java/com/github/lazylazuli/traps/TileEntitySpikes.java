@@ -7,7 +7,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Enchantments;
-import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -15,14 +14,13 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ITickable;
-import net.minecraft.util.NonNullList;
 
 import javax.annotation.Nonnull;
 import java.util.Random;
 
 public class TileEntitySpikes extends TileEntity implements ITickable
 {
-	private NonNullList<ItemStack> inventory = NonNullList.withSize(1, ItemStack.EMPTY);
+	private ItemStack inventory;
 	
 	private int sharpness;
 	
@@ -54,7 +52,7 @@ public class TileEntitySpikes extends TileEntity implements ITickable
 	
 	void initializeStack(ItemStack stack)
 	{
-		inventory.set(0, stack.copy());
+		this.inventory = stack.copy();
 		
 		NBTTagCompound compound = stack.getTagCompound();
 		
@@ -104,8 +102,8 @@ public class TileEntitySpikes extends TileEntity implements ITickable
 	
 	ItemStack getItemDropped()
 	{
-		ItemStack stack = inventory.get(0)
-								   .copy();
+		ItemStack stack = inventory
+				.copy();
 		
 		if (damage > 0)
 		{
@@ -195,7 +193,7 @@ public class TileEntitySpikes extends TileEntity implements ITickable
 	
 	private boolean attemptDamageItem(int amount, Random rand)
 	{
-		ItemStack stack = inventory.get(0);
+		ItemStack stack = inventory;
 		
 		int i = EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, stack);
 		int j = 0;
@@ -226,9 +224,13 @@ public class TileEntitySpikes extends TileEntity implements ITickable
 	{
 		super.readFromNBT(compound);
 		
-		ItemStackHelper.loadAllItems(compound, inventory);
+		if (compound.hasKey("Stack"))
+		{
+			NBTTagCompound nbt = compound.getCompoundTag("Stack");
+			inventory = ItemStack.func_77949_a(nbt);
+		}
 		
-		initializeStack(inventory.get(0));
+		initializeStack(inventory);
 		
 		damageCooldown = compound.getInteger("DamageCooldown");
 		damage = compound.getInteger("Damage");
@@ -240,7 +242,9 @@ public class TileEntitySpikes extends TileEntity implements ITickable
 	{
 		super.writeToNBT(compound);
 		
-		ItemStackHelper.saveAllItems(compound, inventory);
+		NBTTagCompound nbt = new NBTTagCompound();
+		inventory.writeToNBT(nbt);
+		compound.setTag("Stack", nbt);
 		
 		compound.setInteger("DamageCooldown", damageCooldown);
 		compound.setInteger("Damage", damage);

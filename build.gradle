@@ -1,9 +1,9 @@
 def modid = "traps"
 def modname = "Lazy Lazuli's Traps"
 def modversion = "1.1.2"
-def mcversion = "1.11.2"
+def mcversion = "1.10.2"
 def libVersion = "$mcversion-1.1.1"
-def forgeversion = "13.20.0.2228"
+def forgeversion = "12.18.3.2185"
 def modfile = 'Traps.java'
 def update = "https://github.com/lazylazuli/Traps/releases/download/Latest/update.json"
 

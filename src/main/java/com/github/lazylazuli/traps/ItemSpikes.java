@@ -2,12 +2,14 @@ package com.github.lazylazuli.traps;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Enchantments;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemColored;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -97,12 +99,25 @@ public class ItemSpikes extends ItemColored
 		return s;
 	}
 	
+	// TODO: 2017-06-05
 	@Override
-	public boolean canApplyAtEnchantingTable(ItemStack stack, net.minecraft.enchantment.Enchantment enchantment)
+	public boolean isBookEnchantable(ItemStack stack, ItemStack book)
 	{
-		return enchantment == Enchantments.BANE_OF_ARTHROPODS || enchantment == Enchantments.BLAST_PROTECTION ||
-				enchantment == Enchantments.FIRE_ASPECT || enchantment == Enchantments.SHARPNESS || enchantment ==
-				Enchantments.SMITE || enchantment == Enchantments.UNBREAKING;
+		NBTTagList list = book.getEnchantmentTagList();
+		
+		for (int i = 0; i < list.tagCount(); i++)
+		{
+			NBTTagCompound ench = (NBTTagCompound) list.get(i);
+			
+			int id = ench.getShort("id");
+			Enchantment enchantment = Enchantment.REGISTRY.getObjectById(id);
+			if (enchantment == Enchantments.BANE_OF_ARTHROPODS || enchantment == Enchantments.BLAST_PROTECTION ||
+					enchantment == Enchantments.FIRE_ASPECT || enchantment == Enchantments.SHARPNESS || enchantment ==
+					Enchantments.SMITE || enchantment == Enchantments.UNBREAKING)
+				return true;
+		}
+		
+		return false;
 	}
 	
 	@Override
@@ -115,5 +130,10 @@ public class ItemSpikes extends ItemColored
 	public int getItemEnchantability()
 	{
 		return getToolMaterial().getEnchantability();
+	}
+	
+	public boolean isDamageable()
+	{
+		return true;
 	}
 }
