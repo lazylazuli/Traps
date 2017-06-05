@@ -1,8 +1,8 @@
-def libVersion = "1.0.2"
 def modid = "traps"
 def modname = "Lazy Lazuli's Traps"
-def modversion = "1.1.1"
+def modversion = "1.1.2"
 def mcversion = "1.11.2"
+def libVersion = "$mcversion-1.1.1"
 def forgeversion = "13.20.0.2228"
 def modfile = 'Traps.java'
 def update = "https://github.com/lazylazuli/Traps/releases/download/Latest/update.json"
@@ -30,11 +30,11 @@ compileJava {
 }
 
 repositories {
-    maven { url "https://jitpack.io" }
+	maven { url "https://jitpack.io" }
 }
 
 dependencies {
-    compile "com.github.lazylazuli:LazyLazuliLib:$libVersion"
+	compile "com.github.lazylazuli:LazyLazuliLib:$libVersion"
 }
 
 minecraft {
