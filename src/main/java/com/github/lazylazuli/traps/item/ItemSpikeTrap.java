@@ -1,5 +1,6 @@
-package com.github.lazylazuli.traps;
+package com.github.lazylazuli.traps.item;
 
+import com.github.lazylazuli.traps.block.BlockSpikeTrap;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,9 +15,9 @@ import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.List;
 
-public class ItemSpikes extends ItemColored
+public class ItemSpikeTrap extends ItemColored
 {
-	ItemSpikes(BlockSpikeTrap blockSpikeTrap)
+	public ItemSpikeTrap(BlockSpikeTrap blockSpikeTrap)
 	{
 		super(blockSpikeTrap, true);
 		
@@ -80,7 +81,7 @@ public class ItemSpikes extends ItemColored
 	@Override
 	public boolean isEnchantable(@Nonnull ItemStack stack)
 	{
-		return stack.getItem() instanceof ItemSpikes;
+		return stack.getItem() instanceof ItemSpikeTrap;
 	}
 	
 	@Nonnull

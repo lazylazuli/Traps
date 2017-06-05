@@ -1,5 +1,6 @@
-package com.github.lazylazuli.traps;
+package com.github.lazylazuli.traps.block;
 
+import com.github.lazylazuli.traps.tile.TileEntitySpikeTrap;
 import net.minecraft.block.BlockColored;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
@@ -33,7 +34,7 @@ public class BlockSpikeTrap extends BlockColored implements ITileEntityProvider
 	
 	private final Item.ToolMaterial toolMaterial;
 	
-	BlockSpikeTrap(String name, Material material, SoundType sound, Item.ToolMaterial toolMaterial)
+	public BlockSpikeTrap(String name, Material material, SoundType sound, Item.ToolMaterial toolMaterial)
 	{
 		super(material);
 		
@@ -59,9 +60,9 @@ public class BlockSpikeTrap extends BlockColored implements ITileEntityProvider
 	{
 		TileEntity te = world.getTileEntity(pos);
 		
-		if (te instanceof TileEntitySpikes)
+		if (te instanceof TileEntitySpikeTrap)
 		{
-			return blockResistance / (5 - ((TileEntitySpikes) te).getBlastResistance());
+			return blockResistance / (5 - ((TileEntitySpikeTrap) te).getBlastResistance());
 		}
 		
 		return getExplosionResistance(exploder);
@@ -113,9 +114,9 @@ public class BlockSpikeTrap extends BlockColored implements ITileEntityProvider
 	{
 		super.harvestBlock(worldIn, player, pos, state, te, stack);
 		
-		if (te instanceof TileEntitySpikes)
+		if (te instanceof TileEntitySpikeTrap)
 		{
-			InventoryHelper.spawnItemStack(worldIn, pos.getX(), pos.getY(), pos.getZ(), ((TileEntitySpikes) te)
+			InventoryHelper.spawnItemStack(worldIn, pos.getX(), pos.getY(), pos.getZ(), ((TileEntitySpikeTrap) te)
 					.getItemDropped());
 		}
 	}
@@ -142,9 +143,9 @@ public class BlockSpikeTrap extends BlockColored implements ITileEntityProvider
 	{
 		TileEntity te = worldIn.getTileEntity(pos);
 		
-		if (te != null && te instanceof TileEntitySpikes)
+		if (te != null && te instanceof TileEntitySpikeTrap)
 		{
-			((TileEntitySpikes) te).onFallenUpon(entityIn, fallDistance);
+			((TileEntitySpikeTrap) te).onFallenUpon(entityIn, fallDistance);
 		}
 	}
 	
@@ -153,9 +154,9 @@ public class BlockSpikeTrap extends BlockColored implements ITileEntityProvider
 	{
 		TileEntity te = worldIn.getTileEntity(pos);
 		
-		if (te != null && te instanceof TileEntitySpikes)
+		if (te != null && te instanceof TileEntitySpikeTrap)
 		{
-			((TileEntitySpikes) te).onEntityWalk(entityIn);
+			((TileEntitySpikeTrap) te).onEntityWalk(entityIn);
 		}
 	}
 	
@@ -165,7 +166,7 @@ public class BlockSpikeTrap extends BlockColored implements ITileEntityProvider
 	@Override
 	public TileEntity createNewTileEntity(@Nonnull World worldIn, int meta)
 	{
-		return new TileEntitySpikes();
+		return new TileEntitySpikeTrap();
 	}
 	
 	@Override
@@ -174,9 +175,9 @@ public class BlockSpikeTrap extends BlockColored implements ITileEntityProvider
 	{
 		TileEntity te = worldIn.getTileEntity(pos);
 		
-		if (te != null && te instanceof TileEntitySpikes)
+		if (te != null && te instanceof TileEntitySpikeTrap)
 		{
-			((TileEntitySpikes) te).initializeStack(stack);
+			((TileEntitySpikeTrap) te).initializeStack(stack);
 		}
 	}
 }

@@ -1,5 +1,6 @@
-package com.github.lazylazuli.traps;
+package com.github.lazylazuli.traps.tile;
 
+import com.github.lazylazuli.traps.block.BlockSpikeTrap;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentDurability;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -20,7 +21,7 @@ import net.minecraft.util.NonNullList;
 import javax.annotation.Nonnull;
 import java.util.Random;
 
-public class TileEntitySpikes extends TileEntity implements ITickable
+public class TileEntitySpikeTrap extends TileEntity implements ITickable
 {
 	private NonNullList<ItemStack> inventory = NonNullList.withSize(1, ItemStack.EMPTY);
 	
@@ -38,7 +39,7 @@ public class TileEntitySpikes extends TileEntity implements ITickable
 	
 	private int damage;
 	
-	int getBlastResistance()
+	public int getBlastResistance()
 	{
 		return blast;
 	}
@@ -52,7 +53,7 @@ public class TileEntitySpikes extends TileEntity implements ITickable
 		}
 	}
 	
-	void initializeStack(ItemStack stack)
+	public void initializeStack(ItemStack stack)
 	{
 		inventory.set(0, stack.copy());
 		
@@ -102,7 +103,7 @@ public class TileEntitySpikes extends TileEntity implements ITickable
 		}
 	}
 	
-	ItemStack getItemDropped()
+	public ItemStack getItemDropped()
 	{
 		ItemStack stack = inventory.get(0)
 								   .copy();
@@ -150,7 +151,7 @@ public class TileEntitySpikes extends TileEntity implements ITickable
 		return dmg;
 	}
 	
-	void onFallenUpon(Entity entityIn, float fallDistance)
+	public void onFallenUpon(Entity entityIn, float fallDistance)
 	{
 		float dmg = getDamageMultiplier(entityIn) + 1;
 		
@@ -160,7 +161,7 @@ public class TileEntitySpikes extends TileEntity implements ITickable
 		damageBlock((int) fall);
 	}
 	
-	void onEntityWalk(Entity entityIn)
+	public void onEntityWalk(Entity entityIn)
 	{
 		if (!entityIn.isSneaking())
 		{

@@ -2,6 +2,9 @@ package com.github.lazylazuli.traps;
 
 import com.github.lazylazuli.lazylazulilib.Registry;
 import com.github.lazylazuli.lazylazulilib.Stack;
+import com.github.lazylazuli.traps.block.BlockSpikeTrap;
+import com.github.lazylazuli.traps.item.ItemSpikeTrap;
+import com.github.lazylazuli.traps.tile.TileEntitySpikeTrap;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -30,11 +33,11 @@ public final class Traps
 	public static final BlockSpikeTrap DIAMOND_SPIKES = createSpikes("diamond_spike_trap", Item.ToolMaterial.DIAMOND);
 	public static final BlockSpikeTrap GOLDEN_SPIKES = createSpikes("golden_spike_trap", Item.ToolMaterial.GOLD);
 	
-	public static final ItemBlock ITEM_WOODEN_SPIKES = new ItemSpikes(WOODEN_SPIKES);
-	public static final ItemBlock ITEM_STONE_SPIKES = new ItemSpikes(STONE_SPIKES);
-	public static final ItemBlock ITEM_IRON_SPIKES = new ItemSpikes(IRON_SPIKES);
-	public static final ItemBlock ITEM_GOLDEN_SPIKES = new ItemSpikes(GOLDEN_SPIKES);
-	public static final ItemBlock ITEM_DIAMOND_SPIKES = new ItemSpikes(DIAMOND_SPIKES);
+	public static final ItemBlock ITEM_WOODEN_SPIKES = new ItemSpikeTrap(WOODEN_SPIKES);
+	public static final ItemBlock ITEM_STONE_SPIKES = new ItemSpikeTrap(STONE_SPIKES);
+	public static final ItemBlock ITEM_IRON_SPIKES = new ItemSpikeTrap(IRON_SPIKES);
+	public static final ItemBlock ITEM_GOLDEN_SPIKES = new ItemSpikeTrap(GOLDEN_SPIKES);
+	public static final ItemBlock ITEM_DIAMOND_SPIKES = new ItemSpikeTrap(DIAMOND_SPIKES);
 	
 	public static final Item WOODEN_SPIKE = createSpike("wooden_spike");
 	public static final Item STONE_SPIKE = createSpike("stone_spike");
@@ -74,7 +77,7 @@ public final class Traps
 		DIAMOND_SPIKES.setCreativeTab(TAB_TRAPS);
 		GOLDEN_SPIKES.setCreativeTab(TAB_TRAPS);
 		
-		GameRegistry.registerTileEntity(TileEntitySpikes.class, "tileentityspiketrap");
+		GameRegistry.registerTileEntity(TileEntitySpikeTrap.class, "tileentityspiketrap");
 		
 		RecipeSpikeTrap.addRecipes(CraftingManager.getInstance());
 	}
