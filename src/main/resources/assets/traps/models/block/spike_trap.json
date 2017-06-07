@@ -1,16 +1,22 @@
 {
-	"parent": "block/thin_block",
+	"parent": "block/half_slab",
+	"textures": {
+		"particle": "blocks/stone_granite_smooth",
+		"bottom": "blocks/stone_granite_smooth",
+		"top": "blocks/stone_granite_smooth",
+		"side": "blocks/stone_granite_smooth"
+	},
 	"elements": [
 		{
 			"from": [ 0, 0, 0 ],
 			"to": [ 16, 8, 16 ],
 			"faces": {
-				"down": { "texture": "#slab" },
-				"up": { "texture": "#slab" },
-				"north": { "texture": "#slab" },
-				"south": { "texture": "#slab" },
-				"west": { "texture": "#slab" },
-				"east": { "texture": "#slab" }
+				"down": { "uv": [ 0, 0, 16, 16 ], "texture": "#bottom", "tintindex": 0, "cullface": "down" },
+				"up": { "uv": [ 0, 0, 16, 16 ], "texture": "#top", "tintindex": 0 },
+				"north": { "uv": [ 0, 8, 16, 16 ], "texture": "#side", "tintindex": 0, "cullface": "north" },
+				"south": { "uv": [ 0, 8, 16, 16 ], "texture": "#side", "tintindex": 0, "cullface": "south" },
+				"west": { "uv": [ 0, 8, 16, 16 ], "texture": "#side", "tintindex": 0, "cullface": "west" },
+				"east": { "uv": [ 0, 8, 16, 16 ], "texture": "#side", "tintindex": 0, "cullface": "east" }
 			}
 		},
 		{

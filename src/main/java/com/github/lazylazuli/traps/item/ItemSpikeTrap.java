@@ -1,31 +1,23 @@
 package com.github.lazylazuli.traps.item;
 
+import com.github.lazylazuli.lazylazulilib.item.ItemBlockDyed;
 import com.github.lazylazuli.traps.block.BlockSpikeTrap;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Enchantments;
-import net.minecraft.item.EnumDyeColor;
-import net.minecraft.item.ItemColored;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.text.translation.I18n;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.Arrays;
 import java.util.List;
 
-public class ItemSpikeTrap extends ItemColored
+public class ItemSpikeTrap extends ItemBlockDyed
 {
 	public ItemSpikeTrap(BlockSpikeTrap blockSpikeTrap)
 	{
-		super(blockSpikeTrap, true);
-		
-		setCreativeTab(CreativeTabs.COMBAT);
-		setSubtypeNames(Arrays.stream(EnumDyeColor.values())
-							  .map(EnumDyeColor::getUnlocalizedName)
-							  .toArray(String[]::new));
-		
+		super(blockSpikeTrap);
 		maxStackSize = 16;
 	}
 	
@@ -35,16 +27,18 @@ public class ItemSpikeTrap extends ItemColored
 	{
 		NBTTagCompound compound = item.getTagCompound();
 		
+		String unloc = getUnlocalizedColor(item);
+		
 		if (compound != null && compound.hasKey("ToolDamage"))
 		{
 			int max = getToolMaterial().getMaxUses();
 			int dmg = max - item.getTagCompound()
 								.getInteger("ToolDamage");
 			
-			return displayName + " (" + dmg + "/" + max + ")";
+			return I18n.translateToLocal(unloc) + " " + displayName + " (" + dmg + "/" + max + ")";
 		} else
 		{
-			return displayName;
+			return I18n.translateToLocal(unloc) + " " + displayName;
 		}
 	}
 	
@@ -61,6 +55,9 @@ public class ItemSpikeTrap extends ItemColored
 		{
 			NBTTagCompound compound = stack.getTagCompound();
 			
+			String unloc = getUnlocalizedColor(stack);
+			tooltip.add("Color: " + I18n.translateToLocal(unloc));
+			
 			if (compound != null && compound.hasKey("ToolDamage"))
 			{
 				int max = getToolMaterial().getMaxUses();
@@ -69,8 +66,6 @@ public class ItemSpikeTrap extends ItemColored
 				tooltip.add("Damage: " + dmg + "/" + max + "");
 			}
 		}
-		
-		super.addInformation(stack, playerIn, tooltip, advanced);
 	}
 	
 	private ToolMaterial getToolMaterial()
@@ -82,20 +77,6 @@ public class ItemSpikeTrap extends ItemColored
 	public boolean isEnchantable(@Nonnull ItemStack stack)
 	{
 		return stack.getItem() instanceof ItemSpikeTrap;
-	}
-	
-	@Nonnull
-	@Override
-	public String getUnlocalizedName(@Nullable ItemStack stack)
-	{
-		String s = block.getUnlocalizedName();
-		
-		if (stack != null)
-		{
-			s += "." + EnumDyeColor.byMetadata(stack.getMetadata());
-		}
-		
-		return s;
 	}
 	
 	@Override

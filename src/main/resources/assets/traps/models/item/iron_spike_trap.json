@@ -1,0 +1,6 @@
+{
+	"parent": "traps:block/spike_trap",
+	"textures": {
+		"spike": "blocks/iron_block"
+	}
+}

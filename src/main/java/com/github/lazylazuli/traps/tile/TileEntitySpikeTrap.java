@@ -1,14 +1,15 @@
 package com.github.lazylazuli.traps.tile;
 
+import com.github.lazylazuli.traps.Traps;
 import com.github.lazylazuli.traps.block.BlockSpikeTrap;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentDurability;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Enchantments;
 import net.minecraft.inventory.ItemStackHelper;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -190,7 +191,14 @@ public class TileEntitySpikeTrap extends TileEntity implements ITickable
 		
 		if (isBroken)
 		{
-			world.setBlockState(pos, Blocks.AIR.getDefaultState());
+			world.setBlockState(
+					pos,
+					Traps.GRANITE_SMOOTH_SLAB.getDefaultState()
+											 .withProperty(
+													 BlockSpikeTrap.COLOR,
+													 EnumDyeColor.byMetadata(getBlockMetadata())
+											 )
+			);
 		}
 	}
 	

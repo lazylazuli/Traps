@@ -1,9 +1,9 @@
 {
 	"forge_marker": 1,
 	"defaults": {
-		"model": "traps:spike_trap",
+		"model": "lazylazulilib:dyed_half_slab_all",
 		"textures": {
-			"spike": "blocks/gold_block"
+			"all": "blocks/stone_diorite"
 		}
 	},
 	"variants": {

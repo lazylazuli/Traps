@@ -1,34 +1,35 @@
 package com.github.lazylazuli.traps.block;
 
+import com.github.lazylazuli.lazylazulilib.block.BlockBase;
+import com.github.lazylazuli.lazylazulilib.block.BlockDyed;
+import com.github.lazylazuli.lazylazulilib.block.state.BlockState;
+import com.github.lazylazuli.lazylazulilib.block.state.BlockStateTile;
 import com.github.lazylazuli.traps.tile.TileEntitySpikeTrap;
-import net.minecraft.block.BlockColored;
+import com.google.common.collect.ImmutableMap;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.InventoryHelper;
-import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumBlockRenderType;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-public class BlockSpikeTrap extends BlockColored implements ITileEntityProvider
+public class BlockSpikeTrap extends BlockDyed implements ITileEntityProvider
 {
 	public static final AxisAlignedBB AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.5D, 1.0D);
 	
@@ -47,12 +48,10 @@ public class BlockSpikeTrap extends BlockColored implements ITileEntityProvider
 		this.toolMaterial = toolMaterial;
 	}
 	
-	@Nonnull
 	@Override
-	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY,
-											float hitZ, int meta, EntityLivingBase placer)
+	public BlockState createBlockState(ImmutableMap<IProperty<?>, Comparable<?>> propertiesIn)
 	{
-		return getDefaultState().withProperty(COLOR, EnumDyeColor.byMetadata(meta));
+		return new BlockSpikeTrapState(this, propertiesIn);
 	}
 	
 	@Override
@@ -68,45 +67,12 @@ public class BlockSpikeTrap extends BlockColored implements ITileEntityProvider
 		return getExplosionResistance(exploder);
 	}
 	
-	@Nonnull
-	@Override
-	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
-	{
-		return AABB;
-	}
-	
-	@Override
-	public boolean isFullCube(IBlockState state)
-	{
-		return false;
-	}
-	
-	@Override
-	public boolean isOpaqueCube(IBlockState state)
-	{
-		return false;
-	}
-	
-	@SideOnly(Side.CLIENT)
-	@Nonnull
-	@Override
-	public BlockRenderLayer getBlockLayer()
-	{
-		return BlockRenderLayer.CUTOUT_MIPPED;
-	}
-	
-	@Nonnull
-	@Override
-	public EnumBlockRenderType getRenderType(IBlockState state)
-	{
-		return EnumBlockRenderType.MODEL;
-	}
-	
 	// BLOCKCONTAINER
 	
 	@Override
-	public void dropBlockAsItemWithChance(World worldIn, @Nonnull BlockPos pos, @Nonnull IBlockState state, float
-			chance, int fortune) {}
+	public void dropBlockAsItemWithChance(World worldIn, @Nonnull BlockPos pos, @Nonnull IBlockState state,
+			float chance, int fortune)
+	{}
 	
 	@Override
 	public void harvestBlock(@Nonnull World worldIn, EntityPlayer player, @Nonnull BlockPos pos, @Nonnull IBlockState
@@ -119,16 +85,6 @@ public class BlockSpikeTrap extends BlockColored implements ITileEntityProvider
 			InventoryHelper.spawnItemStack(worldIn, pos.getX(), pos.getY(), pos.getZ(), ((TileEntitySpikeTrap) te)
 					.getItemDropped());
 		}
-	}
-	
-	@Override
-	public boolean eventReceived(IBlockState state, World worldIn, BlockPos pos, int id, int param)
-	{
-		super.eventReceived(state, worldIn, pos, id, param);
-		
-		TileEntity tileentity = worldIn.getTileEntity(pos);
-		
-		return tileentity != null && tileentity.receiveClientEvent(id, param);
 	}
 	
 	// SPIKE METHODS
@@ -178,6 +134,55 @@ public class BlockSpikeTrap extends BlockColored implements ITileEntityProvider
 		if (te != null && te instanceof TileEntitySpikeTrap)
 		{
 			((TileEntitySpikeTrap) te).initializeStack(stack);
+		}
+	}
+	
+	private class BlockSpikeTrapState extends BlockStateTile
+	{
+		public BlockSpikeTrapState(BlockBase blockIn,
+				ImmutableMap<IProperty<?>, Comparable<?>> propertiesIn)
+		{
+			super(blockIn, propertiesIn);
+		}
+		
+		@Override
+		public MapColor getMapColor()
+		{
+			return getValue(COLOR).getMapColor();
+		}
+		
+		@Override
+		public AxisAlignedBB getBoundingBox(IBlockAccess source, BlockPos pos)
+		{
+			return AABB;
+		}
+		
+		@Override
+		public boolean isFullCube()
+		{
+			return false;
+		}
+		
+		@Override
+		public boolean isOpaqueCube()
+		{
+			return false;
+		}
+		
+		@Override
+		public EnumBlockRenderType getRenderType()
+		{
+			return EnumBlockRenderType.MODEL;
+		}
+		
+		@Override
+		public boolean onBlockEventReceived(World worldIn, BlockPos pos, int id, int param)
+		{
+			super.onBlockEventReceived(worldIn, pos, id, param);
+			
+			TileEntity tileentity = worldIn.getTileEntity(pos);
+			
+			return tileentity != null && tileentity.receiveClientEvent(id, param);
 		}
 	}
 }

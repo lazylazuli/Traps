@@ -1,0 +1,6 @@
+{
+	"parent": "lazylazulilib:block/dyed_half_slab_all",
+	"textures": {
+		"all": "blocks/stone_diorite_smooth"
+	}
+}
