@@ -21,16 +21,12 @@ public class BlockDyedSlab extends BlockDyed
 	
 	private final BlockStone.EnumType type;
 	
-	public BlockDyedSlab(BlockStone.EnumType type)
+	public BlockDyedSlab(Material material, String name, BlockStone.EnumType type)
 	{
-		super(Material.ROCK);
+		super(material, name);
 		
 		this.type = type;
 		
-		String name = type.getName() + "_slab";
-		
-		setRegistryName(name);
-		setUnlocalizedName(name);
 		setHardness(1.5F);
 		setResistance(10.0F);
 		setSoundType(SoundType.STONE);

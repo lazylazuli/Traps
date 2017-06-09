@@ -1,8 +1,7 @@
-package com.github.lazylazuli.traps;
+package com.github.lazylazuli.traps.item.crafting;
 
-import com.github.lazylazuli.lazylazulilib.Craftory;
-import com.github.lazylazuli.lazylazulilib.Stack;
-import com.github.lazylazuli.traps.block.BlockDyedSlab;
+import com.github.lazylazuli.lazylazulilib.inventory.Craftory;
+import com.github.lazylazuli.lazylazulilib.inventory.Stack;
 import net.minecraft.block.Block;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
@@ -12,8 +11,8 @@ import net.minecraft.item.crafting.CraftingManager;
 
 import java.util.Arrays;
 
-import static com.github.lazylazuli.lazylazulilib.Craftory.horizontal;
-import static com.github.lazylazuli.traps.Traps.*;
+import static com.github.lazylazuli.lazylazulilib.inventory.Craftory.horizontal;
+import static com.github.lazylazuli.traps.TrapObjects.*;
 import static net.minecraft.block.BlockStone.EnumType.ANDESITE;
 import static net.minecraft.block.BlockStone.EnumType.ANDESITE_SMOOTH;
 import static net.minecraft.block.BlockStone.EnumType.DIORITE;
@@ -24,26 +23,26 @@ import static net.minecraft.init.Blocks.COBBLESTONE;
 import static net.minecraft.init.Blocks.PLANKS;
 import static net.minecraft.init.Blocks.STONE;
 
-final class RecipeSpikeTrap
+public final class RecipeSpikeTrap
 {
-	static void addRecipes(CraftingManager manager)
+	public static void addRecipes(CraftingManager manager)
 	{
 		for (int i = 0; i < 16; i++)
 		{
 			horizontal(Stack.of(ANDESITE_SLAB, 6, i), Stack.ofMeta(STONE, ANDESITE.getMetadata()));
-			horizontal(Stack.of(ANDESITE_SMOOTH_SLAB, 6, i), Stack.ofMeta(STONE, ANDESITE_SMOOTH.getMetadata()));
+			horizontal(Stack.of(SMOOTH_ANDESITE_SLAB, 6, i), Stack.ofMeta(STONE, ANDESITE_SMOOTH.getMetadata()));
 			horizontal(Stack.of(DIORITE_SLAB, 6, i), Stack.ofMeta(STONE, DIORITE.getMetadata()));
-			horizontal(Stack.of(DIORITE_SMOOTH_SLAB, 6, i), Stack.ofMeta(STONE, DIORITE_SMOOTH.getMetadata()));
+			horizontal(Stack.of(SMOOTH_DIORITE_SLAB, 6, i), Stack.ofMeta(STONE, DIORITE_SMOOTH.getMetadata()));
 			horizontal(Stack.of(GRANITE_SLAB, 6, i), Stack.ofMeta(STONE, GRANITE.getMetadata()));
-			horizontal(Stack.of(GRANITE_SMOOTH_SLAB, 6, i), Stack.ofMeta(STONE, GRANITE_SMOOTH.getMetadata()));
+			horizontal(Stack.of(SMOOTH_GRANITE_SLAB, 6, i), Stack.ofMeta(STONE, GRANITE_SMOOTH.getMetadata()));
 			
-			for (BlockDyedSlab block : Arrays.asList(
+			for (Block block : Arrays.asList(
 					ANDESITE_SLAB,
-					ANDESITE_SMOOTH_SLAB,
+					SMOOTH_ANDESITE_SLAB,
 					DIORITE_SLAB,
-					DIORITE_SMOOTH_SLAB,
+					SMOOTH_DIORITE_SLAB,
 					GRANITE_SLAB,
-					GRANITE_SMOOTH_SLAB
+					SMOOTH_GRANITE_SLAB
 			))
 			{
 				ItemStack stack = Stack.of(block, 8, i);
@@ -78,11 +77,11 @@ final class RecipeSpikeTrap
 		};
 		
 		Block[] trapResult = new Block[] {
-				WOODEN_SPIKES,
-				STONE_SPIKES,
-				IRON_SPIKES,
-				DIAMOND_SPIKES,
-				GOLDEN_SPIKES
+				WOODEN_SPIKE_TRAP,
+				STONE_SPIKE_TRAP,
+				IRON_SPIKE_TRAP,
+				DIAMOND_SPIKE_TRAP,
+				GOLDEN_SPIKE_TRAP
 		};
 		
 		for (int i = 0; i < 5; i++)
@@ -96,7 +95,7 @@ final class RecipeSpikeTrap
 				Craftory.mix(
 						Stack.of(trapResult[i], 4, j),
 						Stack.of(trapIngred[i]),
-						Stack.ofMeta(GRANITE_SMOOTH_SLAB, j)
+						Stack.ofMeta(SMOOTH_GRANITE_SLAB, j)
 				);
 				
 				// spike trap color swap recipe

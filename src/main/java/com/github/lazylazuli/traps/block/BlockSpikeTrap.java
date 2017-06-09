@@ -35,17 +35,15 @@ public class BlockSpikeTrap extends BlockDyed implements ITileEntityProvider
 	
 	private final Item.ToolMaterial toolMaterial;
 	
-	public BlockSpikeTrap(String name, Material material, SoundType sound, Item.ToolMaterial toolMaterial)
+	public BlockSpikeTrap(Material material, String name, Item.ToolMaterial toolMaterial)
 	{
-		super(material);
-		
-		setRegistryName(name);
-		setUnlocalizedName(name);
-		setHardness(1.25f);
-		setResistance(7);
-		setSoundType(sound);
+		super(material, name);
 		
 		this.toolMaterial = toolMaterial;
+		
+		setHardness(1.25f);
+		setResistance(7);
+		setSoundType(SoundType.STONE);
 	}
 	
 	@Override

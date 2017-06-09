@@ -2,7 +2,6 @@ package com.github.lazylazuli.traps.block;
 
 import com.github.lazylazuli.lazylazulilib.block.BlockBase;
 import com.github.lazylazuli.lazylazulilib.block.state.BlockState;
-import com.github.lazylazuli.traps.Traps;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
@@ -30,16 +29,13 @@ public class BlockGrassTrap extends BlockBase implements IGrowable
 {
 	public static final AxisAlignedBB AABB = new AxisAlignedBB(0.0D, 0.875D, 0.0D, 1.0D, 1.0D, 1.0D);
 	
-	public BlockGrassTrap()
+	public BlockGrassTrap(Material material, String name)
 	{
-		super(Material.GRASS);
-		String name = "grass_trap";
-		setRegistryName(name);
-		setUnlocalizedName(name);
+		super(material, name);
+		
 		setDefaultState(blockState.getBaseState()
 								  .withProperty(SNOWY, Boolean.FALSE));
 		setTickRandomly(true);
-		setCreativeTab(Traps.TAB_TRAPS);
 	}
 	
 	@Override
