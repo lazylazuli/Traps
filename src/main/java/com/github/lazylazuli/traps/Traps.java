@@ -1,7 +1,7 @@
 package com.github.lazylazuli.traps;
 
-import com.github.lazylazuli.lazylazulilib.LazyLazuliMod;
-import com.github.lazylazuli.lazylazulilib.common.Proxy;
+import com.github.lazylazuli.lib.common.LazyLazuliMod;
+import com.github.lazylazuli.lib.common.Proxy;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;

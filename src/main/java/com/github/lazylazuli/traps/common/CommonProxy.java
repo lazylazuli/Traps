@@ -1,10 +1,10 @@
 package com.github.lazylazuli.traps.common;
 
-import com.github.lazylazuli.lazylazulilib.inventory.Stack;
-import com.github.lazylazuli.lazylazulilib.item.ItemBase;
-import com.github.lazylazuli.lazylazulilib.registry.BlockRegistry;
-import com.github.lazylazuli.lazylazulilib.registry.CreativeTabRegistry;
-import com.github.lazylazuli.lazylazulilib.registry.ItemRegistry;
+import com.github.lazylazuli.lib.common.inventory.Stack;
+import com.github.lazylazuli.lib.common.item.ItemBase;
+import com.github.lazylazuli.lib.common.registry.BlockRegistry;
+import com.github.lazylazuli.lib.common.registry.CreativeTabRegistry;
+import com.github.lazylazuli.lib.common.registry.ItemRegistry;
 import com.github.lazylazuli.traps.block.BlockDyedSlab;
 import com.github.lazylazuli.traps.block.BlockSpikeTrap;
 import com.github.lazylazuli.traps.item.ItemSpikeTrap;
@@ -27,7 +27,7 @@ import static net.minecraft.block.BlockStone.EnumType.DIORITE_SMOOTH;
 import static net.minecraft.block.BlockStone.EnumType.GRANITE;
 import static net.minecraft.block.BlockStone.EnumType.GRANITE_SMOOTH;
 
-public class CommonProxy extends com.github.lazylazuli.lazylazulilib.common.CommonProxy implements BlockRegistry,
+public class CommonProxy extends com.github.lazylazuli.lib.common.CommonProxy implements BlockRegistry,
 		ItemRegistry, CreativeTabRegistry
 {
 	@Override

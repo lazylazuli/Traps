@@ -1,7 +1,7 @@
 package com.github.lazylazuli.traps.block;
 
-import com.github.lazylazuli.lazylazulilib.block.BlockBase;
-import com.github.lazylazuli.lazylazulilib.block.state.BlockState;
+import com.github.lazylazuli.lib.common.block.BlockBase;
+import com.github.lazylazuli.lib.common.block.state.BlockState;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;

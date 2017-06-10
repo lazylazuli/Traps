@@ -1,6 +1,6 @@
 package com.github.lazylazuli.traps.item;
 
-import com.github.lazylazuli.lazylazulilib.item.ItemBlockDyed;
+import com.github.lazylazuli.lib.common.item.ItemBlockDyed;
 import com.github.lazylazuli.traps.block.BlockSpikeTrap;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;

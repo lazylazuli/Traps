@@ -1,7 +1,7 @@
 package com.github.lazylazuli.traps.item.crafting;
 
-import com.github.lazylazuli.lazylazulilib.inventory.Craftory;
-import com.github.lazylazuli.lazylazulilib.inventory.Stack;
+import com.github.lazylazuli.lib.common.inventory.Stack;
+import com.github.lazylazuli.lib.common.item.crafting.Craftory;
 import net.minecraft.block.Block;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
@@ -11,7 +11,7 @@ import net.minecraft.item.crafting.CraftingManager;
 
 import java.util.Arrays;
 
-import static com.github.lazylazuli.lazylazulilib.inventory.Craftory.horizontal;
+import static com.github.lazylazuli.lib.common.item.crafting.Craftory.horizontal;
 import static com.github.lazylazuli.traps.TrapObjects.*;
 import static net.minecraft.block.BlockStone.EnumType.ANDESITE;
 import static net.minecraft.block.BlockStone.EnumType.ANDESITE_SMOOTH;

@@ -1,6 +1,6 @@
 package com.github.lazylazuli.traps;
 
-import com.github.lazylazuli.lazylazulilib.item.ItemBase;
+import com.github.lazylazuli.lib.common.item.ItemBase;
 import com.github.lazylazuli.traps.block.BlockDyedSlab;
 import com.github.lazylazuli.traps.block.BlockGrassTrap;
 import com.github.lazylazuli.traps.block.BlockSpikeTrap;
