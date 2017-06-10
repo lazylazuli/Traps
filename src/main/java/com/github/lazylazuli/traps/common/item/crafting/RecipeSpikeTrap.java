@@ -1,4 +1,4 @@
-package com.github.lazylazuli.traps.item.crafting;
+package com.github.lazylazuli.traps.common.item.crafting;
 
 import com.github.lazylazuli.lib.common.inventory.Stack;
 import com.github.lazylazuli.lib.common.item.crafting.Craftory;
@@ -12,7 +12,7 @@ import net.minecraft.item.crafting.CraftingManager;
 import java.util.Arrays;
 
 import static com.github.lazylazuli.lib.common.item.crafting.Craftory.horizontal;
-import static com.github.lazylazuli.traps.TrapObjects.*;
+import static com.github.lazylazuli.traps.common.TrapObjects.*;
 import static net.minecraft.block.BlockStone.EnumType.ANDESITE;
 import static net.minecraft.block.BlockStone.EnumType.ANDESITE_SMOOTH;
 import static net.minecraft.block.BlockStone.EnumType.DIORITE;

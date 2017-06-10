@@ -5,11 +5,11 @@ import com.github.lazylazuli.lib.common.item.ItemBase;
 import com.github.lazylazuli.lib.common.registry.BlockRegistry;
 import com.github.lazylazuli.lib.common.registry.CreativeTabRegistry;
 import com.github.lazylazuli.lib.common.registry.ItemRegistry;
-import com.github.lazylazuli.traps.block.BlockDyedSlab;
-import com.github.lazylazuli.traps.block.BlockSpikeTrap;
-import com.github.lazylazuli.traps.item.ItemSpikeTrap;
-import com.github.lazylazuli.traps.item.crafting.RecipeSpikeTrap;
-import com.github.lazylazuli.traps.tile.TileEntitySpikeTrap;
+import com.github.lazylazuli.traps.common.block.BlockDyedSlab;
+import com.github.lazylazuli.traps.common.block.BlockSpikeTrap;
+import com.github.lazylazuli.traps.common.item.ItemSpikeTrap;
+import com.github.lazylazuli.traps.common.item.crafting.RecipeSpikeTrap;
+import com.github.lazylazuli.traps.common.tile.TileSpikeTrap;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -19,7 +19,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-import static com.github.lazylazuli.traps.TrapObjects.*;
+import static com.github.lazylazuli.traps.common.TrapObjects.*;
 import static net.minecraft.block.BlockStone.EnumType.ANDESITE;
 import static net.minecraft.block.BlockStone.EnumType.ANDESITE_SMOOTH;
 import static net.minecraft.block.BlockStone.EnumType.DIORITE;
@@ -35,7 +35,7 @@ public class CommonProxy extends com.github.lazylazuli.lib.common.CommonProxy im
 	{
 		super.preInit(event);
 		
-		GameRegistry.registerTileEntity(TileEntitySpikeTrap.class, "tileentityspiketrap");
+		GameRegistry.registerTileEntity(TileSpikeTrap.class, "tileentityspiketrap");
 		RecipeSpikeTrap.addRecipes(CraftingManager.getInstance());
 	}
 	

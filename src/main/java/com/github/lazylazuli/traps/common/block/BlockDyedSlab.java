@@ -1,4 +1,4 @@
-package com.github.lazylazuli.traps.block;
+package com.github.lazylazuli.traps.common.block;
 
 import com.github.lazylazuli.lib.common.block.BlockBase;
 import com.github.lazylazuli.lib.common.block.BlockDyed;

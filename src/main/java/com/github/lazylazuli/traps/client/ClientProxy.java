@@ -4,7 +4,7 @@ import com.github.lazylazuli.traps.common.CommonProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-import static com.github.lazylazuli.traps.TrapObjects.*;
+import static com.github.lazylazuli.traps.common.TrapObjects.*;
 
 public class ClientProxy extends CommonProxy
 {

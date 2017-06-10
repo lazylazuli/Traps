@@ -1,6 +1,6 @@
-package com.github.lazylazuli.traps.tile;
+package com.github.lazylazuli.traps.common.tile;
 
-import com.github.lazylazuli.traps.block.BlockSpikeTrap;
+import com.github.lazylazuli.traps.common.block.BlockSpikeTrap;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentDurability;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -21,9 +21,9 @@ import net.minecraft.util.NonNullList;
 import javax.annotation.Nonnull;
 import java.util.Random;
 
-import static com.github.lazylazuli.traps.TrapObjects.SMOOTH_GRANITE_SLAB;
+import static com.github.lazylazuli.traps.common.TrapObjects.SMOOTH_GRANITE_SLAB;
 
-public class TileEntitySpikeTrap extends TileEntity implements ITickable
+public class TileSpikeTrap extends TileEntity implements ITickable
 {
 	private NonNullList<ItemStack> inventory = NonNullList.withSize(1, ItemStack.EMPTY);
 	

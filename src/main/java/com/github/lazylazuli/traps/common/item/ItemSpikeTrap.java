@@ -1,7 +1,7 @@
-package com.github.lazylazuli.traps.item;
+package com.github.lazylazuli.traps.common.item;
 
 import com.github.lazylazuli.lib.common.item.ItemBlockDyed;
-import com.github.lazylazuli.traps.block.BlockSpikeTrap;
+import com.github.lazylazuli.traps.common.block.BlockSpikeTrap;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Enchantments;

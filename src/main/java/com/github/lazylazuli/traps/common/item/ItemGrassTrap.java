@@ -1,6 +1,6 @@
-package com.github.lazylazuli.traps.item;
+package com.github.lazylazuli.traps.common.item;
 
-import com.github.lazylazuli.traps.TrapObjects;
+import com.github.lazylazuli.traps.common.TrapObjects;
 import net.minecraft.item.ItemBlock;
 
 public class ItemGrassTrap extends ItemBlock

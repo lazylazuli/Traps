@@ -1,4 +1,4 @@
-package com.github.lazylazuli.traps;
+package com.github.lazylazuli.traps.common;
 
 import com.github.lazylazuli.lib.common.LazyLazuliMod;
 import com.github.lazylazuli.lib.common.Proxy;

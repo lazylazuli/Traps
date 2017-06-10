@@ -1,10 +1,10 @@
-package com.github.lazylazuli.traps.block;
+package com.github.lazylazuli.traps.common.block;
 
 import com.github.lazylazuli.lib.common.block.BlockBase;
 import com.github.lazylazuli.lib.common.block.BlockDyed;
 import com.github.lazylazuli.lib.common.block.state.BlockState;
 import com.github.lazylazuli.lib.common.block.state.BlockStateTile;
-import com.github.lazylazuli.traps.tile.TileEntitySpikeTrap;
+import com.github.lazylazuli.traps.common.tile.TileSpikeTrap;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
@@ -57,9 +57,9 @@ public class BlockSpikeTrap extends BlockDyed implements ITileEntityProvider
 	{
 		TileEntity te = world.getTileEntity(pos);
 		
-		if (te instanceof TileEntitySpikeTrap)
+		if (te instanceof TileSpikeTrap)
 		{
-			return blockResistance / (5 - ((TileEntitySpikeTrap) te).getBlastResistance());
+			return blockResistance / (5 - ((TileSpikeTrap) te).getBlastResistance());
 		}
 		
 		return getExplosionResistance(exploder);
@@ -78,9 +78,9 @@ public class BlockSpikeTrap extends BlockDyed implements ITileEntityProvider
 	{
 		super.harvestBlock(worldIn, player, pos, state, te, stack);
 		
-		if (te instanceof TileEntitySpikeTrap)
+		if (te instanceof TileSpikeTrap)
 		{
-			InventoryHelper.spawnItemStack(worldIn, pos.getX(), pos.getY(), pos.getZ(), ((TileEntitySpikeTrap) te)
+			InventoryHelper.spawnItemStack(worldIn, pos.getX(), pos.getY(), pos.getZ(), ((TileSpikeTrap) te)
 					.getItemDropped());
 		}
 	}
@@ -97,9 +97,9 @@ public class BlockSpikeTrap extends BlockDyed implements ITileEntityProvider
 	{
 		TileEntity te = worldIn.getTileEntity(pos);
 		
-		if (te != null && te instanceof TileEntitySpikeTrap)
+		if (te != null && te instanceof TileSpikeTrap)
 		{
-			((TileEntitySpikeTrap) te).onFallenUpon(entityIn, fallDistance);
+			((TileSpikeTrap) te).onFallenUpon(entityIn, fallDistance);
 		}
 	}
 	
@@ -108,9 +108,9 @@ public class BlockSpikeTrap extends BlockDyed implements ITileEntityProvider
 	{
 		TileEntity te = worldIn.getTileEntity(pos);
 		
-		if (te != null && te instanceof TileEntitySpikeTrap)
+		if (te != null && te instanceof TileSpikeTrap)
 		{
-			((TileEntitySpikeTrap) te).onEntityWalk(entityIn);
+			((TileSpikeTrap) te).onEntityWalk(entityIn);
 		}
 	}
 	
@@ -120,7 +120,7 @@ public class BlockSpikeTrap extends BlockDyed implements ITileEntityProvider
 	@Override
 	public TileEntity createNewTileEntity(@Nonnull World worldIn, int meta)
 	{
-		return new TileEntitySpikeTrap();
+		return new TileSpikeTrap();
 	}
 	
 	@Override
@@ -129,9 +129,9 @@ public class BlockSpikeTrap extends BlockDyed implements ITileEntityProvider
 	{
 		TileEntity te = worldIn.getTileEntity(pos);
 		
-		if (te != null && te instanceof TileEntitySpikeTrap)
+		if (te != null && te instanceof TileSpikeTrap)
 		{
-			((TileEntitySpikeTrap) te).initializeStack(stack);
+			((TileSpikeTrap) te).initializeStack(stack);
 		}
 	}
 	

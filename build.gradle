@@ -20,7 +20,7 @@ def mcversion = "1.11.2"
 def forgeversion = "13.20.0.2228"
 def libVersion = "$mcversion-2.0.0-2"
 def modversion = "2.0.0"
-def buildnumber = "2"
+def buildnumber = "3"
 
 def update = "https://github.com/lazylazuli/Traps/releases/download/Latest/update.json"
 
