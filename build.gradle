@@ -25,18 +25,18 @@ ext {
 	getBuildNumber = { ->
 		stdout = new ByteArrayOutputStream()
 		exec {
-			commandLine 'git', 'rev-list', 'master', '--count'
+			commandLine 'git', 'rev-list', '1.11.2', '--count'
 			standardOutput = stdout
 		}
 		return stdout.toString().trim()
 	}
-	buildnumber = 20
+	buildnumber = 21
 
 	update = "https://github.com/lazylazuli/Traps/releases/download/Latest/update.json"
 }
 
 version = "$mcversion-$modversion-$buildnumber"
-group = "com.github.lazylazuli.traps"
+group = "com.github.lazylazuli.lazylazulitraps"
 archivesBaseName = modid
 
 sourceCompatibility = targetCompatibility = "1.8"
