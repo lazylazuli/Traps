@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 		"required-after:lazylazulilib", updateJSON = Traps.UPDATE)
 public class Traps extends LazyLazuliMod
 {
-	public static final String MODID = "traps";
+	public static final String MODID = "lazylazulitraps";
 	public static final String VERSION = "@version@";
 	public static final String MCVERSION = "@mcversion@";
 	public static final String UPDATE = "@update@";
