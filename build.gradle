@@ -19,7 +19,7 @@ ext {
 
 	mcversion = "1.11.2"
 	forgeversion = "13.20.0.2228"
-	libVersion = "$mcversion-2.0.0-30"
+	libVersion = "$mcversion-2.0.0-36"
 	modversion = "2.0.0"
 
 	getBuildNumber = { ->
@@ -30,7 +30,7 @@ ext {
 		}
 		return stdout.toString().trim()
 	}
-	buildnumber = 21
+	buildnumber = 22
 
 	update = "https://github.com/lazylazuli/Traps/releases/download/Latest/update.json"
 }
