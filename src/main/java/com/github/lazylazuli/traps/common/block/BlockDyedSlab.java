@@ -40,7 +40,7 @@ public class BlockDyedSlab extends BlockDyed
 		return new State(this, propertiesIn);
 	}
 	
-	private class State extends BlockState
+	class State extends BlockState
 	{
 		public State(BlockBase blockIn, ImmutableMap<IProperty<?>, Comparable<?>> propertiesIn)
 		{
@@ -48,7 +48,7 @@ public class BlockDyedSlab extends BlockDyed
 		}
 		
 		@Override
-		public MapColor getMapColor()
+		public MapColor getMapColor(IBlockAccess blockAccess, BlockPos pos)
 		{
 			return ((BlockDyedSlab) getBlock()).type.getMapColor();
 		}

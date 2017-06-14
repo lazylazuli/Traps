@@ -2,69 +2,54 @@ package com.github.lazylazuli.traps.common.item;
 
 import com.github.lazylazuli.lib.common.item.ItemBlockDyed;
 import com.github.lazylazuli.traps.common.block.BlockSpikeTrap;
+import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.init.Enchantments;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.text.translation.I18n;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 public class ItemSpikeTrap extends ItemBlockDyed
 {
 	public ItemSpikeTrap(BlockSpikeTrap blockSpikeTrap)
 	{
 		super(blockSpikeTrap);
-		maxStackSize = 16;
 	}
 	
-	@Nonnull
 	@Override
-	public String getHighlightTip(ItemStack item, @Nonnull String displayName)
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, @Nullable World playerIn, List<String> tooltip, ITooltipFlag advanced)
 	{
-		NBTTagCompound compound = item.getTagCompound();
+		int dmg = getToolDamage(stack);
 		
-		String unloc = getUnlocalizedColor(item);
+		if (dmg > 0)
+		{
+			int max = getToolMaterial().getMaxUses();
+			int remaining = max - dmg;
+			tooltip.add(String.format("Damage: (%s/%s)", remaining, max));
+		}
+	}
+	
+	public int getToolDamage(ItemStack stack)
+	{
+		NBTTagCompound compound = stack.getTagCompound();
 		
 		if (compound != null && compound.hasKey("ToolDamage"))
 		{
-			int max = getToolMaterial().getMaxUses();
-			int dmg = max - item.getTagCompound()
-								.getInteger("ToolDamage");
-			
-			return I18n.translateToLocal(unloc) + " " + displayName + " (" + dmg + "/" + max + ")";
+			return stack.getTagCompound()
+						.getInteger("ToolDamage");
 		} else
 		{
-			return I18n.translateToLocal(unloc) + " " + displayName;
-		}
-	}
-	
-	@Override
-	public void addInformation(@Nullable ItemStack stack, @Nullable EntityPlayer playerIn, @Nullable List<String>
-			tooltip, boolean advanced)
-	{
-		if (tooltip == null)
-		{
-			return;
-		}
-		
-		if (stack != null)
-		{
-			NBTTagCompound compound = stack.getTagCompound();
-			
-			String unloc = getUnlocalizedColor(stack);
-			tooltip.add("Color: " + I18n.translateToLocal(unloc));
-			
-			if (compound != null && compound.hasKey("ToolDamage"))
-			{
-				int max = getToolMaterial().getMaxUses();
-				int dmg = max - stack.getTagCompound()
-									 .getInteger("ToolDamage");
-				tooltip.add("Damage: " + dmg + "/" + max + "");
-			}
+			return 0;
 		}
 	}
 	
@@ -74,7 +59,7 @@ public class ItemSpikeTrap extends ItemBlockDyed
 	}
 	
 	@Override
-	public boolean isEnchantable(@Nonnull ItemStack stack)
+	public boolean isEnchantable(ItemStack stack)
 	{
 		return stack.getItem() instanceof ItemSpikeTrap;
 	}

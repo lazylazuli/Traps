@@ -87,7 +87,8 @@ public final class RecipeSpikeTrap
 		for (int i = 0; i < 5; i++)
 		{
 			// spike recipe
-			manager.addRecipe(Stack.of(trapIngred[i], 6), " # ", "# #", '#', spikeIngred[i]);
+			// TODO: 2017-06-15 when forge updates crafting registry
+//			manager.addRecipe(Stack.of(trapIngred[i], 6), " # ", "# #", '#', spikeIngred[i]);
 			
 			for (int j = 0; j < 16; j++)
 			{

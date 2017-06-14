@@ -1,6 +1,6 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "traps:items/golden_spike"
+		"layer0": "lazylazulitraps:items/golden_spike"
 	}
 }

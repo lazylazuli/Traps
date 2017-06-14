@@ -1,5 +1,5 @@
 {
-	"parent": "traps:block/grass_trap",
+	"parent": "lazylazulitraps:block/grass_trap",
 	"textures": {
 		"particle": "blocks/dirt",
 		"bottom": "blocks/dirt",

@@ -2,19 +2,18 @@ package com.github.lazylazuli.traps.common;
 
 import com.github.lazylazuli.lib.common.inventory.Stack;
 import com.github.lazylazuli.lib.common.item.ItemBase;
+import com.github.lazylazuli.lib.common.item.ItemBlockDyed;
 import com.github.lazylazuli.lib.common.registry.BlockRegistry;
 import com.github.lazylazuli.lib.common.registry.CreativeTabRegistry;
 import com.github.lazylazuli.lib.common.registry.ItemRegistry;
 import com.github.lazylazuli.traps.common.block.BlockDyedSlab;
 import com.github.lazylazuli.traps.common.block.BlockSpikeTrap;
 import com.github.lazylazuli.traps.common.item.ItemSpikeTrap;
-import com.github.lazylazuli.traps.common.item.crafting.RecipeSpikeTrap;
 import com.github.lazylazuli.traps.common.tile.TileSpikeTrap;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import net.minecraft.item.crafting.CraftingManager;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -36,7 +35,9 @@ public class CommonProxy extends com.github.lazylazuli.lib.common.CommonProxy im
 		super.preInit(event);
 		
 		GameRegistry.registerTileEntity(TileSpikeTrap.class, "tileentityspiketrap");
-		RecipeSpikeTrap.addRecipes(CraftingManager.getInstance());
+		
+		// TODO: 2017-06-15 when forge updates crafting registry
+//		RecipeSpikeTrap.addRecipes(CraftingManager.getInstance());
 	}
 	
 	@Override
@@ -73,6 +74,12 @@ public class CommonProxy extends com.github.lazylazuli.lib.common.CommonProxy im
 				new ItemBase("iron_spike"),
 				new ItemBase("golden_spike"),
 				new ItemBase("diamond_spike"),
+				new ItemBlockDyed(ANDESITE_SLAB),
+				new ItemBlockDyed(SMOOTH_ANDESITE_SLAB),
+				new ItemBlockDyed(DIORITE_SLAB),
+				new ItemBlockDyed(SMOOTH_DIORITE_SLAB),
+				new ItemBlockDyed(GRANITE_SLAB),
+				new ItemBlockDyed(SMOOTH_GRANITE_SLAB),
 				new ItemSpikeTrap(WOODEN_SPIKE_TRAP),
 				new ItemSpikeTrap(STONE_SPIKE_TRAP),
 				new ItemSpikeTrap(IRON_SPIKE_TRAP),
@@ -93,12 +100,6 @@ public class CommonProxy extends com.github.lazylazuli.lib.common.CommonProxy im
 	public Block[] getBlocksForTab(CreativeTabs tab)
 	{
 		return new Block[] {
-				ANDESITE_SLAB,
-				SMOOTH_ANDESITE_SLAB,
-				DIORITE_SLAB,
-				SMOOTH_DIORITE_SLAB,
-				GRANITE_SLAB,
-				SMOOTH_GRANITE_SLAB,
 				WOODEN_SPIKE_TRAP,
 				STONE_SPIKE_TRAP,
 				IRON_SPIKE_TRAP,

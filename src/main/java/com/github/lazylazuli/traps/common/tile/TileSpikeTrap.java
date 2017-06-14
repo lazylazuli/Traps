@@ -21,6 +21,7 @@ import net.minecraft.util.NonNullList;
 import javax.annotation.Nonnull;
 import java.util.Random;
 
+import static com.github.lazylazuli.lib.common.block.BlockDyed.COLOR;
 import static com.github.lazylazuli.traps.common.TrapObjects.SMOOTH_GRANITE_SLAB;
 
 public class TileSpikeTrap extends TileEntity implements ITickable
@@ -192,13 +193,10 @@ public class TileSpikeTrap extends TileEntity implements ITickable
 		
 		if (isBroken)
 		{
-			world.setBlockState(
-					pos,
+			EnumDyeColor color = EnumDyeColor.byMetadata(getBlockMetadata());
+			world.setBlockState(pos,
 					SMOOTH_GRANITE_SLAB.getDefaultState()
-									   .withProperty(
-											   BlockSpikeTrap.COLOR,
-											   EnumDyeColor.byMetadata(getBlockMetadata())
-									   )
+									   .withProperty(COLOR, color)
 			);
 		}
 	}

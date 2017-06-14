@@ -1,14 +1,12 @@
 package com.github.lazylazuli.traps.common.block;
 
 import com.github.lazylazuli.lib.common.block.BlockBase;
-import com.github.lazylazuli.lib.common.block.BlockDyed;
 import com.github.lazylazuli.lib.common.block.state.BlockState;
 import com.github.lazylazuli.lib.common.block.state.BlockStateTile;
 import com.github.lazylazuli.traps.common.tile.TileSpikeTrap;
 import com.google.common.collect.ImmutableMap;
+import net.minecraft.block.BlockStone;
 import net.minecraft.block.ITileEntityProvider;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
@@ -19,37 +17,28 @@ import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.EnumBlockRenderType;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Explosion;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-public class BlockSpikeTrap extends BlockDyed implements ITileEntityProvider
+public class BlockSpikeTrap extends BlockDyedSlab implements ITileEntityProvider
 {
-	public static final AxisAlignedBB AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.5D, 1.0D);
-	
 	private final Item.ToolMaterial toolMaterial;
 	
 	public BlockSpikeTrap(Material material, String name, Item.ToolMaterial toolMaterial)
 	{
-		super(material, name);
+		super(material, name, BlockStone.EnumType.GRANITE_SMOOTH);
 		
 		this.toolMaterial = toolMaterial;
-		
-		setHardness(1.25f);
-		setResistance(7);
-		setSoundType(SoundType.STONE);
 	}
 	
 	@Override
 	public BlockState createBlockState(ImmutableMap<IProperty<?>, Comparable<?>> propertiesIn)
 	{
-		return new BlockSpikeTrapState(this, propertiesIn);
+		return new State(this, propertiesIn);
 	}
 	
 	@Override
@@ -135,52 +124,19 @@ public class BlockSpikeTrap extends BlockDyed implements ITileEntityProvider
 		}
 	}
 	
-	private class BlockSpikeTrapState extends BlockStateTile
+	private class State extends BlockDyedSlab.State implements BlockStateTile
 	{
-		public BlockSpikeTrapState(BlockBase blockIn,
+		public State(BlockBase blockIn,
 				ImmutableMap<IProperty<?>, Comparable<?>> propertiesIn)
 		{
 			super(blockIn, propertiesIn);
 		}
 		
 		@Override
-		public MapColor getMapColor()
-		{
-			return getValue(COLOR).getMapColor();
-		}
-		
-		@Override
-		public AxisAlignedBB getBoundingBox(IBlockAccess source, BlockPos pos)
-		{
-			return AABB;
-		}
-		
-		@Override
-		public boolean isFullCube()
-		{
-			return false;
-		}
-		
-		@Override
-		public boolean isOpaqueCube()
-		{
-			return false;
-		}
-		
-		@Override
-		public EnumBlockRenderType getRenderType()
-		{
-			return EnumBlockRenderType.MODEL;
-		}
-		
-		@Override
 		public boolean onBlockEventReceived(World worldIn, BlockPos pos, int id, int param)
 		{
 			super.onBlockEventReceived(worldIn, pos, id, param);
-			
-			TileEntity tileentity = worldIn.getTileEntity(pos);
-			
-			return tileentity != null && tileentity.receiveClientEvent(id, param);
+			return BlockStateTile.super.onBlockEventReceived(worldIn, pos, id, param);
 		}
 	}
 }

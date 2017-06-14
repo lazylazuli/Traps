@@ -34,7 +34,7 @@ public class BlockGrassTrap extends BlockBase implements IGrowable
 		super(material, name);
 		
 		setDefaultState(blockState.getBaseState()
-								  .withProperty(SNOWY, Boolean.FALSE));
+								  .withProperty(SNOWY, false));
 		setTickRandomly(true);
 	}
 	

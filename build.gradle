@@ -5,7 +5,7 @@ buildscript {
 	}
 
 	dependencies {
-		classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+		classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
 	}
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
@@ -17,20 +17,20 @@ ext {
 
 	modfile = "Traps.java"
 
-	mcversion = "1.11.2"
-	forgeversion = "13.20.0.2228"
-	libVersion = "$mcversion-2.0.0-36"
+	mcversion = "1.12"
+	forgeversion = "14.21.0.2321"
+	libVersion = "$mcversion-2.0.0-41"
 	modversion = "2.0.0"
 
 	getBuildNumber = { ->
 		stdout = new ByteArrayOutputStream()
 		exec {
-			commandLine 'git', 'rev-list', '1.11.2', '--count'
+			commandLine 'git', 'rev-list', 'master', '--count'
 			standardOutput = stdout
 		}
 		return stdout.toString().trim()
 	}
-	buildnumber = 22
+	buildnumber = 24
 
 	update = "https://github.com/lazylazuli/Traps/releases/download/Latest/update.json"
 }

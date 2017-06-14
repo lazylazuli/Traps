@@ -1,7 +1,7 @@
 {
 	"forge_marker": 1,
 	"defaults": {
-		"model": "traps:spike_trap",
+		"model": "lazylazulitraps:spike_trap",
 		"textures": {
 			"spike": "blocks/gold_block"
 		}

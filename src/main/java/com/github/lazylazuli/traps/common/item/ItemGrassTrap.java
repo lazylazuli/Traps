@@ -8,6 +8,5 @@ public class ItemGrassTrap extends ItemBlock
 	public ItemGrassTrap()
 	{
 		super(TrapObjects.GRASS_TRAP);
-		
 	}
 }

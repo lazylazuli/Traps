@@ -1,5 +1,5 @@
 {
-	"parent": "traps:block/spike_trap",
+	"parent": "lazylazulitraps:block/spike_trap",
 	"textures": {
 		"spike": "blocks/planks_oak"
 	}

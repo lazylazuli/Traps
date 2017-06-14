@@ -1,6 +1,6 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "traps:items/diamond_spike"
+		"layer0": "lazylazulitraps:items/diamond_spike"
 	}
 }
