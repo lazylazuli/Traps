@@ -1,5 +1,7 @@
 itemGroup.traps=Traps
 
+tile.grass_trap.name=Grass Trap
+
 tile.andesite_slab.name=Andesite Slab
 tile.diorite_slab.name=Diorite Slab
 tile.granite_slab.name=Granite Slab

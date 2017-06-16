@@ -2,11 +2,13 @@ package com.github.lazylazuli.traps.common;
 
 import com.github.lazylazuli.lib.common.inventory.Stack;
 import com.github.lazylazuli.lib.common.item.ItemBase;
+import com.github.lazylazuli.lib.common.item.ItemBlockBase;
 import com.github.lazylazuli.lib.common.item.ItemBlockDyed;
 import com.github.lazylazuli.lib.common.registry.BlockRegistry;
 import com.github.lazylazuli.lib.common.registry.CreativeTabRegistry;
 import com.github.lazylazuli.lib.common.registry.ItemRegistry;
 import com.github.lazylazuli.traps.common.block.BlockDyedSlab;
+import com.github.lazylazuli.traps.common.block.BlockGrassTrap;
 import com.github.lazylazuli.traps.common.block.BlockSpikeTrap;
 import com.github.lazylazuli.traps.common.item.ItemSpikeTrap;
 import com.github.lazylazuli.traps.common.tile.TileSpikeTrap;
@@ -34,7 +36,7 @@ public class CommonProxy extends com.github.lazylazuli.lib.common.CommonProxy im
 	{
 		super.preInit(event);
 		
-		GameRegistry.registerTileEntity(TileSpikeTrap.class, "tileentityspiketrap");
+		GameRegistry.registerTileEntity(TileSpikeTrap.class, "tile_spike_trap");
 		
 		// TODO: 2017-06-15 when forge updates crafting registry
 //		RecipeSpikeTrap.addRecipes(CraftingManager.getInstance());
@@ -61,7 +63,7 @@ public class CommonProxy extends com.github.lazylazuli.lib.common.CommonProxy im
 				new BlockSpikeTrap(Material.ROCK, "iron_spike_trap", Item.ToolMaterial.IRON),
 				new BlockSpikeTrap(Material.ROCK, "golden_spike_trap", Item.ToolMaterial.GOLD),
 				new BlockSpikeTrap(Material.ROCK, "diamond_spike_trap", Item.ToolMaterial.DIAMOND),
-//				new BlockGrassTrap(Material.ROCK, "grass_trap")
+				new BlockGrassTrap(Material.GRASS, "grass_trap")
 		};
 	}
 	
@@ -84,7 +86,8 @@ public class CommonProxy extends com.github.lazylazuli.lib.common.CommonProxy im
 				new ItemSpikeTrap(STONE_SPIKE_TRAP),
 				new ItemSpikeTrap(IRON_SPIKE_TRAP),
 				new ItemSpikeTrap(GOLDEN_SPIKE_TRAP),
-				new ItemSpikeTrap(DIAMOND_SPIKE_TRAP)
+				new ItemSpikeTrap(DIAMOND_SPIKE_TRAP),
+				new ItemBlockBase(GRASS_TRAP)
 		};
 	}
 	
@@ -105,7 +108,7 @@ public class CommonProxy extends com.github.lazylazuli.lib.common.CommonProxy im
 				IRON_SPIKE_TRAP,
 				GOLDEN_SPIKE_TRAP,
 				DIAMOND_SPIKE_TRAP,
-//				GRASS_TRAP
+				GRASS_TRAP
 		};
 	}
 	

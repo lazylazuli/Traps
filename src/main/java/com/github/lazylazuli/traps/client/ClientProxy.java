@@ -1,6 +1,11 @@
 package com.github.lazylazuli.traps.client;
 
 import com.github.lazylazuli.traps.common.CommonProxy;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.world.ColorizerGrass;
+import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
@@ -12,6 +17,8 @@ public class ClientProxy extends CommonProxy
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		super.preInit(event);
+		
+		setModelResource(GRASS_TRAP);
 		
 		setModelResource(ANDESITE_SLAB);
 		setModelResource(SMOOTH_ANDESITE_SLAB);
@@ -50,29 +57,29 @@ public class ClientProxy extends CommonProxy
 		registerDyedColorHandler(IRON_SPIKE_TRAP);
 		registerDyedColorHandler(GOLDEN_SPIKE_TRAP);
 		registerDyedColorHandler(DIAMOND_SPIKE_TRAP);
-
-//		Minecraft.getMinecraft()
-//				 .getBlockColors()
-//				 .registerBlockColorHandler((state, worldIn, pos, tintIndex) ->
-//				 {
-//					 if (worldIn != null && pos != null)
-//					 {
-//						 return BiomeColorHelper.getGrassColorAtPos(worldIn, pos);
-//					 } else
-//					 {
-//						 return ColorizerGrass.getGrassColor(0.5D, 1.0D);
-//					 }
-//				 }, GRASS_TRAP);
-//
-//		Minecraft.getMinecraft()
-//				 .getItemColors()
-//				 .registerItemColorHandler((stack, tintIndex) ->
-//				 {
-//					 IBlockState iblockstate = ((ItemBlock) stack.getItem()).getBlock()
-//																			.getStateFromMeta(stack.getMetadata());
-//					 return Minecraft.getMinecraft()
-//									 .getBlockColors()
-//									 .colorMultiplier(iblockstate, null, null, tintIndex);
-//				 }, GRASS_TRAP);
+		
+		Minecraft.getMinecraft()
+				 .getBlockColors()
+				 .registerBlockColorHandler((state, worldIn, pos, tintIndex) ->
+				 {
+					 if (worldIn != null && pos != null)
+					 {
+						 return BiomeColorHelper.getGrassColorAtPos(worldIn, pos);
+					 } else
+					 {
+						 return ColorizerGrass.getGrassColor(0.5D, 1.0D);
+					 }
+				 }, GRASS_TRAP);
+		
+		Minecraft.getMinecraft()
+				 .getItemColors()
+				 .registerItemColorHandler((stack, tintIndex) ->
+				 {
+					 IBlockState iblockstate = ((ItemBlock) stack.getItem()).getBlock()
+																			.getStateFromMeta(stack.getMetadata());
+					 return Minecraft.getMinecraft()
+									 .getBlockColors()
+									 .colorMultiplier(iblockstate, null, null, tintIndex);
+				 }, GRASS_TRAP);
 	}
 }

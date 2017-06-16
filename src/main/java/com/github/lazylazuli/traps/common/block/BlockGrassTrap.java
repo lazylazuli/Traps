@@ -4,16 +4,17 @@ import com.github.lazylazuli.lib.common.block.BlockBase;
 import com.github.lazylazuli.lib.common.block.state.BlockState;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockDirt;
-import net.minecraft.block.BlockTallGrass;
-import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -25,7 +26,7 @@ import java.util.Random;
 
 import static net.minecraft.block.BlockGrass.SNOWY;
 
-public class BlockGrassTrap extends BlockBase implements IGrowable
+public class BlockGrassTrap extends BlockBase
 {
 	public static final AxisAlignedBB AABB = new AxisAlignedBB(0.0D, 0.875D, 0.0D, 1.0D, 1.0D, 1.0D);
 	
@@ -35,120 +36,110 @@ public class BlockGrassTrap extends BlockBase implements IGrowable
 		
 		setDefaultState(blockState.getBaseState()
 								  .withProperty(SNOWY, false));
-		setTickRandomly(true);
 	}
 	
 	@Override
-	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
+	public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance)
 	{
-		if (!worldIn.isRemote)
+		breakTrap(worldIn, pos);
+		breakSurroundingTraps(worldIn, pos);
+	}
+	
+	@Override
+	public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn)
+	{
+		if (!entityIn.isSneaking())
 		{
-			if (worldIn.getLightFromNeighbors(pos.up()) < 4 && worldIn.getBlockState(pos.up())
-																	  .getLightOpacity(worldIn, pos.up()) > 2)
+			breakTrap(worldIn, pos);
+			breakSurroundingTraps(worldIn, pos);
+		}
+	}
+	
+	public void breakTrap(World worldIn, BlockPos pos)
+	{
+		worldIn.setBlockToAir(pos);
+		worldIn.getEntitiesWithinAABB(
+				EntityPlayer.class,
+				new AxisAlignedBB(
+						pos.getX() - 10,
+						pos.getY() - 10,
+						pos.getZ() - 10,
+						pos.getX() + 10,
+						pos.getY() + 10,
+						pos.getZ() + 10
+				)
+		)
+			   .forEach(e -> playSound(worldIn, pos, e));
+	}
+	
+	private void breakSurroundingTraps(World worldIn, BlockPos pos)
+	{
+		for (int i = -1; i < 2; i++)
+		{
+			for (int j = -1; j < 2; j++)
 			{
-				worldIn.setBlockState(pos, Blocks.DIRT.getDefaultState());
-			} else
-			{
-				if (worldIn.getLightFromNeighbors(pos.up()) >= 9)
+				BlockPos pos1 = new BlockPos(
+						pos.getX() + i,
+						pos.getY(),
+						pos.getZ() + j
+				);
+				IBlockState state = worldIn.getBlockState(pos1);
+				
+				if (state.getBlock() == this)
 				{
-					for (int i = 0; i < 4; ++i)
-					{
-						BlockPos blockpos = pos.add(rand.nextInt(3) - 1, rand.nextInt(5) - 3, rand.nextInt(3) - 1);
-						
-						if (blockpos.getY() >= 0 && blockpos.getY() < 256 && !worldIn.isBlockLoaded(blockpos))
-						{
-							return;
-						}
-						
-						IBlockState iblockstate = worldIn.getBlockState(blockpos.up());
-						IBlockState iblockstate1 = worldIn.getBlockState(blockpos);
-						
-						if (iblockstate1.getBlock() == Blocks.DIRT && iblockstate1.getValue(BlockDirt.VARIANT) ==
-								BlockDirt.DirtType.DIRT && worldIn.getLightFromNeighbors(
-								blockpos.up()) >= 4 && iblockstate.getLightOpacity(worldIn, pos.up()) <= 2)
-						{
-							worldIn.setBlockState(blockpos, Blocks.GRASS.getDefaultState());
-						}
-					}
+					((BlockGrassTrap) state.getBlock()).breakTrap(worldIn, pos1);
 				}
 			}
 		}
+	}
+	
+	private void playSound(World worldIn, BlockPos pos, EntityPlayer entityPlayer)
+	{
+		worldIn.playSound(
+				entityPlayer, pos,
+				SoundEvents.BLOCK_GRASS_BREAK,
+				SoundCategory.BLOCKS,
+				0.3F,
+				0.6F
+		);
+	}
+	
+	@Override
+	public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
+	{
+		for (EnumFacing side : EnumFacing.HORIZONTALS)
+		{
+			if (canPlaceBlockOnSide(worldIn, pos, side))
+			{
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	@Override
+	public boolean canPlaceBlockOnSide(World worldIn, BlockPos pos, EnumFacing side)
+	{
+		if (side == EnumFacing.UP || side == EnumFacing.DOWN)
+		{
+			return false;
+		}
+		
+		side = side.getOpposite();
+		IBlockState state = worldIn.getBlockState(new BlockPos(
+				pos.getX() + side.getFrontOffsetX(),
+				pos.getY() + side.getFrontOffsetY(),
+				pos.getZ() + side.getFrontOffsetZ()
+		));
+		
+		return state.getBlock() == Blocks.GRASS;
 	}
 	
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune)
 	{
-		return Blocks.DIRT.getItemDropped(
-				Blocks.DIRT.getDefaultState()
-						   .withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.DIRT), rand, fortune);
-	}
-	
-	@Override
-	public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient)
-	{
-		return true;
-	}
-	
-	@Override
-	public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state)
-	{
-		return true;
-	}
-	
-	@Override
-	public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state)
-	{
-		BlockPos blockpos = pos.up();
-		
-		for (int i = 0; i < 128; ++i)
-		{
-			BlockPos blockpos1 = blockpos;
-			int j = 0;
-			
-			while (true)
-			{
-				if (j >= i / 16)
-				{
-					if (worldIn.isAirBlock(blockpos1))
-					{
-						if (rand.nextInt(8) == 0)
-						{
-							worldIn.getBiome(blockpos1)
-								   .plantFlower(worldIn, rand, blockpos1);
-						} else
-						{
-							IBlockState iblockstate1 = Blocks.TALLGRASS.getDefaultState()
-																	   .withProperty(
-																			   BlockTallGrass.TYPE,
-																			   BlockTallGrass.EnumType.GRASS
-																	   );
-							
-							if (Blocks.TALLGRASS.canBlockStay(worldIn, blockpos1, iblockstate1))
-							{
-								worldIn.setBlockState(blockpos1, iblockstate1, 3);
-							}
-						}
-					}
-					
-					break;
-				}
-				
-				blockpos1 = blockpos1.add(
-						rand.nextInt(3) - 1,
-						(rand.nextInt(3) - 1) * rand.nextInt(3) / 2,
-						rand.nextInt(3) - 1
-				);
-				
-				if (worldIn.getBlockState(blockpos1.down())
-						   .getBlock() != Blocks.GRASS || worldIn.getBlockState(blockpos1)
-																 .isNormalCube())
-				{
-					break;
-				}
-				
-				++j;
-			}
-		}
+		return null;
 	}
 	
 	@SideOnly(Side.CLIENT)
