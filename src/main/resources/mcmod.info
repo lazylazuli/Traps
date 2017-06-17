@@ -1,7 +1,7 @@
 [
 {
-  "modid": ${modid},
-  "name": ${modname},
+  "modid": "${modid}",
+  "name": "${modname}",
   "description": "Simple traps mod. Kill your unsuspecting enemies with spike_trap!",
   "version": "${version}",
   "mcversion": "${mcversion}",

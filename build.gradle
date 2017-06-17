@@ -30,7 +30,7 @@ ext {
 		}
 		return stdout.toString().trim()
 	}
-	buildnumber = 37
+	buildnumber = 38
 
 	update = "https://github.com/lazylazuli/Traps/releases/download/Latest/update.json"
 }
