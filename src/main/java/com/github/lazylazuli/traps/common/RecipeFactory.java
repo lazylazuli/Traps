@@ -96,12 +96,13 @@ class RecipeFactory extends JsonRecipeFactory
 		}
 		
 		createShapedRecipe(
-				"grass_trap", Stack.of(GRASS_TRAP, 4),
+				"grass_trap",
+				Stack.of(GRASS_TRAP, 4),
 				"#X#",
 				"X#X",
 				"#X#",
 				'#',
-				Stack.of(Blocks.TALLGRASS),
+				Stack.ofMeta(Blocks.TALLGRASS, 1),
 				'X',
 				Stack.of(Items.STICK)
 		);
