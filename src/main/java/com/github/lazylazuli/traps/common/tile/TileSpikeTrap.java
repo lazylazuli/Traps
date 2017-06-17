@@ -62,6 +62,8 @@ public class TileSpikeTrap extends TileEntity implements ITickable
 	public void initializeStack(ItemStack stack)
 	{
 		inventory.set(0, stack.copy());
+		inventory.get(0)
+				 .setCount(1);
 		
 		NBTTagCompound compound = stack.getTagCompound();
 		
@@ -197,10 +199,8 @@ public class TileSpikeTrap extends TileEntity implements ITickable
 		if (isBroken)
 		{
 			EnumDyeColor color = EnumDyeColor.byMetadata(getBlockMetadata());
-			world.setBlockState(pos,
-					SMOOTH_GRANITE_SLAB.getDefaultState()
-									   .withProperty(COLOR, color)
-			);
+			world.setBlockState(pos, SMOOTH_GRANITE_SLAB.getDefaultState()
+														.withProperty(COLOR, color));
 		}
 	}
 	
