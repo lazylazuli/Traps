@@ -37,9 +37,6 @@ public class CommonProxy extends com.github.lazylazuli.lib.common.CommonProxy im
 		super.preInit(event);
 		
 		GameRegistry.registerTileEntity(TileSpikeTrap.class, "tile_spike_trap");
-		
-		// TODO: 2017-06-15 when forge updates crafting registry
-//		RecipeSpikeTrap.addRecipes(CraftingManager.getInstance());
 	}
 	
 	@Override
@@ -58,12 +55,27 @@ public class CommonProxy extends com.github.lazylazuli.lib.common.CommonProxy im
 				new BlockDyedSlab(Material.ROCK, "smooth_diorite_slab", DIORITE_SMOOTH),
 				new BlockDyedSlab(Material.ROCK, "granite_slab", GRANITE),
 				new BlockDyedSlab(Material.ROCK, "smooth_granite_slab", GRANITE_SMOOTH),
-				new BlockSpikeTrap(Material.ROCK, "wooden_spike_trap", Item.ToolMaterial.WOOD),
-				new BlockSpikeTrap(Material.ROCK, "stone_spike_trap", Item.ToolMaterial.STONE),
-				new BlockSpikeTrap(Material.ROCK, "iron_spike_trap", Item.ToolMaterial.IRON),
-				new BlockSpikeTrap(Material.ROCK, "golden_spike_trap", Item.ToolMaterial.GOLD),
-				new BlockSpikeTrap(Material.ROCK, "diamond_spike_trap", Item.ToolMaterial.DIAMOND),
-				new BlockGrassTrap(Material.GRASS, "grass_trap")
+				new BlockGrassTrap(Material.GRASS, "grass_trap"),
+				new BlockSpikeTrap(Material.ROCK, "wooden_spike_trap", Item.ToolMaterial.WOOD, () -> WOODEN_SPIKE_TRAP
+						.getDefaultState(), () -> WOODEN_SPIKE_TRAP_OFF.getDefaultState()),
+				new BlockSpikeTrap(Material.ROCK, "stone_spike_trap", Item.ToolMaterial.STONE, () -> STONE_SPIKE_TRAP
+						.getDefaultState(), () -> STONE_SPIKE_TRAP_OFF.getDefaultState()),
+				new BlockSpikeTrap(Material.ROCK, "iron_spike_trap", Item.ToolMaterial.IRON, () -> IRON_SPIKE_TRAP
+						.getDefaultState(), () -> IRON_SPIKE_TRAP_OFF.getDefaultState()),
+				new BlockSpikeTrap(Material.ROCK, "golden_spike_trap", Item.ToolMaterial.GOLD, () -> GOLDEN_SPIKE_TRAP
+						.getDefaultState(), () -> GOLDEN_SPIKE_TRAP_OFF.getDefaultState()),
+				new BlockSpikeTrap(Material.ROCK, "diamond_spike_trap", Item.ToolMaterial.DIAMOND, () ->
+						DIAMOND_SPIKE_TRAP.getDefaultState(), () -> DIAMOND_SPIKE_TRAP_OFF.getDefaultState()),
+				new BlockSpikeTrap(Material.ROCK, "wooden_spike_trap_off", Item.ToolMaterial.WOOD, () ->
+						WOODEN_SPIKE_TRAP.getDefaultState(), () -> WOODEN_SPIKE_TRAP_OFF.getDefaultState()),
+				new BlockSpikeTrap(Material.ROCK, "stone_spike_trap_off", Item.ToolMaterial.STONE, () ->
+						STONE_SPIKE_TRAP.getDefaultState(), () -> STONE_SPIKE_TRAP_OFF.getDefaultState()),
+				new BlockSpikeTrap(Material.ROCK, "iron_spike_trap_off", Item.ToolMaterial.IRON, () -> IRON_SPIKE_TRAP
+						.getDefaultState(), () -> IRON_SPIKE_TRAP_OFF.getDefaultState()),
+				new BlockSpikeTrap(Material.ROCK, "golden_spike_trap_off", Item.ToolMaterial.GOLD, () ->
+						GOLDEN_SPIKE_TRAP.getDefaultState(), () -> GOLDEN_SPIKE_TRAP_OFF.getDefaultState()),
+				new BlockSpikeTrap(Material.ROCK, "diamond_spike_trap_off", Item.ToolMaterial.DIAMOND, () ->
+						DIAMOND_SPIKE_TRAP.getDefaultState(), () -> DIAMOND_SPIKE_TRAP_OFF.getDefaultState())
 		};
 	}
 	

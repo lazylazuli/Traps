@@ -58,6 +58,12 @@ public class ClientProxy extends CommonProxy
 		registerDyedColorHandler(GOLDEN_SPIKE_TRAP);
 		registerDyedColorHandler(DIAMOND_SPIKE_TRAP);
 		
+		registerDyedColorHandler(WOODEN_SPIKE_TRAP_OFF);
+		registerDyedColorHandler(STONE_SPIKE_TRAP_OFF);
+		registerDyedColorHandler(IRON_SPIKE_TRAP_OFF);
+		registerDyedColorHandler(GOLDEN_SPIKE_TRAP_OFF);
+		registerDyedColorHandler(DIAMOND_SPIKE_TRAP_OFF);
+		
 		Minecraft.getMinecraft()
 				 .getBlockColors()
 				 .registerBlockColorHandler((state, worldIn, pos, tintIndex) ->

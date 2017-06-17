@@ -9,11 +9,11 @@ tile.smooth_andesite_slab.name=Smooth Andesite Slab
 tile.smooth_diorite_slab.name=Smooth Diorite Slab
 tile.smooth_granite_slab.name=Smooth Granite Slab
 
-item.wooden_spike.name=Wooden Spike Trap
-item.stone_spike.name=Stone Spike Trap
-item.iron_spike.name=Iron Spike Trap
-item.diamond_spike.name=Diamond Spike Trap
-item.golden_spike.name=Golden Spike Trap
+item.wooden_spike.name=Wooden Spike
+item.stone_spike.name=Stone Spike
+item.iron_spike.name=Iron Spike
+item.diamond_spike.name=Diamond Spike
+item.golden_spike.name=Golden Spike
 
 tile.wooden_spike_trap.name=Wooden Spike Trap
 tile.stone_spike_trap.name=Stone Spike Trap

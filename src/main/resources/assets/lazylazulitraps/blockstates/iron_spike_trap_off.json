@@ -1,0 +1,29 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "lazylazulitraps:spike_trap_lowered",
+		"textures": {
+			"spike": "blocks/iron_block"
+		}
+	},
+	"variants": {
+		"color": {
+			"black": { },
+			"blue": { },
+			"brown": { },
+			"cyan": { },
+			"gray": { },
+			"green": { },
+			"light_blue": { },
+			"lime": { },
+			"magenta": { },
+			"orange": { },
+			"pink": { },
+			"purple": { },
+			"red": { },
+			"silver": { },
+			"white": { },
+			"yellow": { }
+		}
+	}
+}

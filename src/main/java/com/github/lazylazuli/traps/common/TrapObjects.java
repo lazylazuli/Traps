@@ -44,6 +44,21 @@ public class TrapObjects
 	@GameRegistry.ObjectHolder("diamond_spike_trap")
 	public static final BlockSpikeTrap DIAMOND_SPIKE_TRAP = null;
 	
+	@GameRegistry.ObjectHolder("wooden_spike_trap_off")
+	public static final BlockSpikeTrap WOODEN_SPIKE_TRAP_OFF = null;
+	
+	@GameRegistry.ObjectHolder("stone_spike_trap_off")
+	public static final BlockSpikeTrap STONE_SPIKE_TRAP_OFF = null;
+	
+	@GameRegistry.ObjectHolder("iron_spike_trap_off")
+	public static final BlockSpikeTrap IRON_SPIKE_TRAP_OFF = null;
+	
+	@GameRegistry.ObjectHolder("golden_spike_trap_off")
+	public static final BlockSpikeTrap GOLDEN_SPIKE_TRAP_OFF = null;
+	
+	@GameRegistry.ObjectHolder("diamond_spike_trap_off")
+	public static final BlockSpikeTrap DIAMOND_SPIKE_TRAP_OFF = null;
+	
 	@GameRegistry.ObjectHolder("grass_trap")
 	public static final BlockGrassTrap GRASS_TRAP = null;
 	
