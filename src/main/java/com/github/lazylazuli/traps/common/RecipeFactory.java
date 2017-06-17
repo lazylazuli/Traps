@@ -96,8 +96,7 @@ class RecipeFactory extends JsonRecipeFactory
 		}
 		
 		createShapedRecipe(
-				"grass_trap",
-				Stack.of(GRASS_TRAP, 5),
+				"grass_trap", Stack.of(GRASS_TRAP, 4),
 				"#X#",
 				"X#X",
 				"#X#",
