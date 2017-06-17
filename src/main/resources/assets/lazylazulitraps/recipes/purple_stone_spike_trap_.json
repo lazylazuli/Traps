@@ -1,0 +1,1 @@
+{ "type": "minecraft:crafting_shaped", "pattern": [ "###", "#X#", "###" ], "key": { "#": { "item": "lazylazulitraps:stone_spike_trap", "data": 32767, "count": 1 }, "X": { "item": "minecraft:dye", "data": 5, "count": 1 } }, "result": { "item": "lazylazulitraps:stone_spike_trap", "data": 10, "count": 8 } }

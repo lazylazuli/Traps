@@ -1,0 +1,1 @@
+{ "type": "minecraft:crafting_shaped", "pattern": [ "XXX" ], "key": { "X": { "item": "minecraft:stone", "data": 4, "count": 1 } }, "result": { "item": "lazylazulitraps:smooth_diorite_slab", "data": 0, "count": 6 } }

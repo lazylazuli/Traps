@@ -1,0 +1,1 @@
+{ "type": "minecraft:crafting_shaped", "pattern": [ "###", "#X#", "###" ], "key": { "#": { "item": "lazylazulitraps:diorite_slab", "data": 32767, "count": 1 }, "X": { "item": "minecraft:dye", "data": 3, "count": 1 } }, "result": { "item": "lazylazulitraps:diorite_slab", "data": 12, "count": 8 } }
