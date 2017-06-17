@@ -19,7 +19,7 @@ ext {
 
 	mcversion = "1.12"
 	forgeversion = "14.21.0.2331"
-	libVersion = "$mcversion-2.0.0-52"
+	libVersion = "$mcversion-2.0.0-54"
 	modversion = "2.0.0"
 
 	getBuildNumber = { ->
