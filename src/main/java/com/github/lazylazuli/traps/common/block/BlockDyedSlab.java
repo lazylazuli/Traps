@@ -11,6 +11,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.EnumBlockRenderType;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -75,6 +76,12 @@ public class BlockDyedSlab extends BlockDyed
 		public EnumBlockRenderType getRenderType()
 		{
 			return EnumBlockRenderType.MODEL;
+		}
+		
+		@Override
+		public boolean isSideSolid(IBlockAccess world, BlockPos pos, EnumFacing side)
+		{
+			return side == EnumFacing.DOWN;
 		}
 	}
 }
