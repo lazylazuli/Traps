@@ -183,8 +183,7 @@ class RecipeFactory extends JsonRecipeFactory
 		{
 			name = spikes[i].getItem()
 							.getRegistryName();
-			GameRegistry.register(new ShapedOreRecipe(rl,
-					slabs[i],
+			GameRegistry.register(new ShapedOreRecipe(rl, spikes[i],
 					" X ",
 					"X X",
 					'X',
