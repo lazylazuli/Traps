@@ -19,7 +19,7 @@ ext {
 
 	mcversion = "1.12"
 	forgeversion = "14.21.0.2331"
-	libVersion = "$mcversion-2.0.0-47"
+	libVersion = "$mcversion-2.0.0-48"
 	modversion = "2.0.0"
 
 	getBuildNumber = { ->
@@ -36,7 +36,7 @@ ext {
 }
 
 version = "$mcversion-$modversion-$buildnumber"
-group = "com.github.lazylazuli.lazylazulitraps"
+group = "com.github.lazylazuli.traps"
 archivesBaseName = modid
 
 sourceCompatibility = targetCompatibility = "1.8"
