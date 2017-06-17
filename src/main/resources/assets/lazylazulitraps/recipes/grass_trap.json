@@ -1,0 +1,21 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [ "#X#", "X#X", "#X#" ],
+	"key": {
+		"#": {
+			"item": "minecraft:tallgrass",
+			"data": 0,
+			"count": 1
+		},
+		"X": {
+			"item": "minecraft:stick",
+			"data": 0,
+			"count": 1
+		}
+	},
+	"result": {
+		"item": "lazylazulitraps:grass_trap",
+		"data": 0,
+		"count": 5
+	}
+}

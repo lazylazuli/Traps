@@ -1,1 +1,21 @@
-{ "type": "minecraft:crafting_shaped", "pattern": [ "XXX", "###" ], "key": { "X": { "item": "lazylazulitraps:stone_spike", "data": 0, "count": 1 }, "#": { "item": "lazylazulitraps:smooth_granite_slab", "data": 15, "count": 1 } }, "result": { "item": "lazylazulitraps:stone_spike_trap", "data": 15, "count": 3 } }
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [ "XXX", "###" ],
+	"key": {
+		"X": {
+			"item": "lazylazulitraps:stone_spike",
+			"data": 0,
+			"count": 1
+		},
+		"#": {
+			"item": "lazylazulitraps:smooth_granite_slab",
+			"data": 15,
+			"count": 1
+		}
+	},
+	"result": {
+		"item": "lazylazulitraps:stone_spike_trap",
+		"data": 15,
+		"count": 3
+	}
+}

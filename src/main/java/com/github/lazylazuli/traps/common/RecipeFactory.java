@@ -1,4 +1,4 @@
-package com.github.lazylazuli.traps.common.item.crafting;
+package com.github.lazylazuli.traps.common;
 
 import com.github.lazylazuli.lib.common.inventory.Stack;
 import com.github.lazylazuli.lib.common.item.crafting.JsonRecipeFactory;
@@ -10,9 +10,9 @@ import net.minecraft.item.ItemStack;
 import static com.github.lazylazuli.traps.common.TrapObjects.*;
 import static net.minecraft.init.Blocks.STONE;
 
-public class RecipeFactory extends JsonRecipeFactory
+class RecipeFactory extends JsonRecipeFactory
 {
-	public RecipeFactory(String path)
+	RecipeFactory(String path)
 	{
 		super(path);
 		
@@ -94,5 +94,17 @@ public class RecipeFactory extends JsonRecipeFactory
 						.getItem(), 32767), 'X', Stack.ofMeta(Items.DYE, dye.getDyeDamage()));
 			}
 		}
+		
+		createShapedRecipe(
+				"grass_trap",
+				Stack.of(GRASS_TRAP, 5),
+				"#X#",
+				"X#X",
+				"#X#",
+				'#',
+				Stack.of(Blocks.TALLGRASS),
+				'X',
+				Stack.of(Items.STICK)
+		);
 	}
 }
