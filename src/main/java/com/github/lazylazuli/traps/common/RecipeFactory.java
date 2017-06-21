@@ -206,7 +206,6 @@ class RecipeFactory extends JsonRecipeFactory
 														.substring(5)
 				);
 				
-				System.out.println(name.getResourcePath());
 				GameRegistry.register(new ShapedOreRecipe(rl,
 						slabColored,
 						"XXX",
