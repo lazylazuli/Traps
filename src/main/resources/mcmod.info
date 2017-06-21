@@ -1,10 +1,10 @@
 [
 {
-  "modid": "${modid}",
-  "name": "${modname}",
+  "modid": "lazylazulitraps",
+  "name": "Lazy Lazuli Traps",
   "description": "Simple traps mod. Kill your unsuspecting enemies with spike_trap!",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
+  "version": "2.0.0",
+  "mcversion": "1.12",
   "url": "https://minecraft.curseforge.com/projects/lazy-lazulis-traps",
   "authorList": ["LazyLazuli"],
   "useDependencyInformation": true,
