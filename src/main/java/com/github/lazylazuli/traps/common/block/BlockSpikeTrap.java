@@ -86,10 +86,10 @@ public class BlockSpikeTrap extends BlockDyedSlab implements ITileEntityProvider
 		
 		if (te instanceof TileSpikeTrap)
 		{
-			return blockResistance / (5 - ((TileSpikeTrap) te).getBlastResistance());
+			return blockResistance / (5.0F - ((TileSpikeTrap) te).getBlastResistance());
 		}
 		
-		return getExplosionResistance(exploder);
+		return blockResistance / 5.0F;
 	}
 	
 	// SPIKE METHODS
