@@ -48,7 +48,6 @@ public class CommonProxy extends com.github.lazylazuli.lib.common.CommonProxy im
 	public void init(FMLInitializationEvent event)
 	{
 		super.init(event);
-		RecipeFactory.registerRecipes();
 	}
 	
 	@Override
