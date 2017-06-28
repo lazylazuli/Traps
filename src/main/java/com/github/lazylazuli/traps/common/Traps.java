@@ -24,7 +24,7 @@ public class Traps extends LazyLazuliMod
 	
 	public static final String UPDATE = "https://github.com/lazylazuli/Traps/releases/download/Latest/update.json";
 	
-	@Mod.Instance
+	@Mod.Instance(MODID)
 	public static Traps instance;
 	
 	@SidedProxy(clientSide = "com.github.lazylazuli.traps.client.ClientProxy",
