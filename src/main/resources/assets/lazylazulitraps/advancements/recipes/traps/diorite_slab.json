@@ -1,0 +1,49 @@
+{
+	"parent": "lazylazulitraps:recipes/root",
+	"rewards": {
+		"recipes": [
+			"lazylazulitraps:diorite_slab",
+			"lazylazulitraps:black_diorite_slab",
+			"lazylazulitraps:blue_diorite_slab",
+			"lazylazulitraps:brown_diorite_slab",
+			"lazylazulitraps:cyan_diorite_slab",
+			"lazylazulitraps:gray_diorite_slab",
+			"lazylazulitraps:green_diorite_slab",
+			"lazylazulitraps:light_blue_diorite_slab",
+			"lazylazulitraps:lime_diorite_slab",
+			"lazylazulitraps:magenta_diorite_slab",
+			"lazylazulitraps:orange_diorite_slab",
+			"lazylazulitraps:pink_diorite_slab",
+			"lazylazulitraps:purple_diorite_slab",
+			"lazylazulitraps:red_diorite_slab",
+			"lazylazulitraps:silver_diorite_slab",
+			"lazylazulitraps:white_diorite_slab",
+			"lazylazulitraps:yellow_diorite_slab"
+		]
+	},
+	"criteria": {
+		"has_diorite": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "minecraft:stone",
+						"data": 3
+					}
+				]
+			}
+		},
+		"has_the_recipe": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "lazylazulitraps:diorite_slab"
+			}
+		}
+	},
+	"requirements": [
+		[
+			"has_diorite",
+			"has_the_recipe"
+		]
+	]
+}

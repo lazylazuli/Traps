@@ -1,0 +1,32 @@
+{
+	"parent": "lazylazulitraps:recipes/root",
+	"rewards": {
+		"recipes": [
+			"lazylazulitraps:stone_spike"
+		]
+	},
+	"criteria": {
+		"has_cobblestone": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "minecraft:cobblestone"
+					}
+				]
+			}
+		},
+		"has_the_recipe": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "lazylazulitraps:stone_spike"
+			}
+		}
+	},
+	"requirements": [
+		[
+			"has_cobblestone",
+			"has_the_recipe"
+		]
+	]
+}

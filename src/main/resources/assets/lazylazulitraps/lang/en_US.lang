@@ -20,3 +20,14 @@ tile.stone_spike_trap.name=Stone Spike Trap
 tile.iron_spike_trap.name=Iron Spike Trap
 tile.diamond_spike_trap.name=Diamond Spike Trap
 tile.golden_spike_trap.name=Golden Spike Trap
+
+advancements.traps.root.title=Traps
+advancements.traps.root.description=Bunk up and defend
+advancements.traps.grass_trap.title=Basic Defense
+advancements.traps.grass_trap.description=Craft grass traps and dig up some pits
+advancements.traps.spike.title=Sharpen Up
+advancements.traps.spike.description=Craft some spikes
+advancements.traps.spike_trap.title=On the Defense
+advancements.traps.spike_trap.description=Craft some spike traps
+advancements.traps.enchant_trap.title=Enchantments?!
+advancements.traps.enchant_trap.description=Enchant a spike trap at an Enchanting Table

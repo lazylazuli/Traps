@@ -1,0 +1,32 @@
+{
+	"parent": "lazylazulitraps:recipes/root",
+	"rewards": {
+		"recipes": [
+			"lazylazulitraps:golden_spike"
+		]
+	},
+	"criteria": {
+		"has_gold_ingot": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "minecraft:gold_ingot"
+					}
+				]
+			}
+		},
+		"has_the_recipe": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "lazylazulitraps:golden_spike"
+			}
+		}
+	},
+	"requirements": [
+		[
+			"has_gold_ingot",
+			"has_the_recipe"
+		]
+	]
+}

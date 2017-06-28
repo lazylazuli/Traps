@@ -1,0 +1,15 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [ " X ", "X X" ],
+	"key": {
+		"X": {
+			"ore": "gemDiamond",
+			"type": "forge:ore_dict"
+		}
+	},
+	"result": {
+		"item": "lazylazulitraps:diamond_spike",
+		"data": 0,
+		"count": 6
+	}
+}

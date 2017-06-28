@@ -1,0 +1,33 @@
+{
+	"parent": "lazylazulitraps:recipes/root",
+	"rewards": {
+		"recipes": [
+			"lazylazulitraps:grass_trap"
+		]
+	},
+	"criteria": {
+		"has_tall_grass": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "minecraft:tallgrass",
+						"data": 1
+					}
+				]
+			}
+		},
+		"has_the_recipe": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "lazylazulitraps:grass_trap"
+			}
+		}
+	},
+	"requirements": [
+		[
+			"has_tall_grass",
+			"has_the_recipe"
+		]
+	]
+}

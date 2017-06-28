@@ -1,0 +1,75 @@
+{
+	"display": {
+		"icon": {
+			"item": "lazylazulitraps:wooden_spike"
+		},
+		"title": {
+			"translate": "advancements.traps.spike.title"
+		},
+		"description": {
+			"translate": "advancements.traps.spike.description"
+		}
+	},
+	"parent": "lazylazulitraps:traps/grass_trap",
+	"criteria": {
+		"wooden_spike": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "lazylazulitraps:wooden_spike"
+					}
+				]
+			}
+		},
+		"stone_spike": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "lazylazulitraps:stone_spike"
+					}
+				]
+			}
+		},
+		"iron_spike": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "lazylazulitraps:iron_spike"
+					}
+				]
+			}
+		},
+		"golden_spike": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "lazylazulitraps:golden_spike"
+					}
+				]
+			}
+		},
+		"diamond_spike": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "lazylazulitraps:diamond_spike"
+					}
+				]
+			}
+		}
+	},
+	"requirements": [
+		[
+			"wooden_spike",
+			"stone_spike",
+			"iron_spike",
+			"golden_spike",
+			"diamond_spike"
+		]
+	]
+}

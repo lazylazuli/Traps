@@ -1,0 +1,75 @@
+{
+	"display": {
+		"icon": {
+			"item": "lazylazulitraps:wooden_spike_trap"
+		},
+		"title": {
+			"translate": "advancements.traps.spike_trap.title"
+		},
+		"description": {
+			"translate": "advancements.traps.spike_trap.description"
+		}
+	},
+	"parent": "lazylazulitraps:traps/spikes",
+	"criteria": {
+		"wooden_spike_trap": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "lazylazulitraps:wooden_spike_trap"
+					}
+				]
+			}
+		},
+		"stone_spike_trap": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "lazylazulitraps:stone_spike_trap"
+					}
+				]
+			}
+		},
+		"iron_spike_trap": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "lazylazulitraps:iron_spike_trap"
+					}
+				]
+			}
+		},
+		"golden_spike_trap": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "lazylazulitraps:golden_spike_trap"
+					}
+				]
+			}
+		},
+		"diamond_spike_trap": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "lazylazulitraps:diamond_spike_trap"
+					}
+				]
+			}
+		}
+	},
+	"requirements": [
+		[
+			"wooden_spike_trap",
+			"stone_spike_trap",
+			"iron_spike_trap",
+			"golden_spike_trap",
+			"diamond_spike_trap"
+		]
+	]
+}

@@ -1,0 +1,27 @@
+{
+	"type": "forge:ore_shaped",
+	"group": "diamond_spike_trap",
+	"pattern": [ "XXX", "#Y#", "Y#Y" ],
+	"key": {
+		"X": {
+			"item": "lazylazulitraps:diamond_spike",
+			"data": 0,
+			"count": 1
+		},
+		"#": {
+			"item": "lazylazulitraps:smooth_granite_slab",
+			"data": 0,
+			"count": 1
+		},
+		"Y": {
+			"item": "minecraft:redstone",
+			"data": 0,
+			"count": 1
+		}
+	},
+	"result": {
+		"item": "lazylazulitraps:diamond_spike_trap",
+		"data": 0,
+		"count": 3
+	}
+}

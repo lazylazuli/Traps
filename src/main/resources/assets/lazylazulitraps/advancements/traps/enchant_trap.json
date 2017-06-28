@@ -1,0 +1,65 @@
+{
+	"display": {
+		"icon": {
+			"item": "minecraft:enchanting_table"
+		},
+		"title": {
+			"translate": "advancements.traps.enchant_trap.title"
+		},
+		"description": {
+			"translate": "advancements.traps.enchant_trap.description"
+		}
+	},
+	"parent": "lazylazulitraps:traps/spike_trap",
+	"criteria": {
+		"enchant_wood": {
+			"trigger": "minecraft:enchanted_item",
+			"conditions": {
+				"item": {
+					"item": "lazylazulitraps:wooden_spike_trap"
+				}
+			}
+		},
+		"enchant_stone": {
+			"trigger": "minecraft:enchanted_item",
+			"conditions": {
+				"item": {
+					"item": "lazylazulitraps:stone_spike_trap"
+				}
+			}
+		},
+		"enchant_iron": {
+			"trigger": "minecraft:enchanted_item",
+			"conditions": {
+				"item": {
+					"item": "lazylazulitraps:iron_spike_trap"
+				}
+			}
+		},
+		"enchant_gold": {
+			"trigger": "minecraft:enchanted_item",
+			"conditions": {
+				"item": {
+					"item": "lazylazulitraps:golden_spike_trap"
+				}
+			}
+		},
+		"enchant_diamond": {
+			"trigger": "minecraft:enchanted_item",
+			"conditions": {
+				"item": {
+					"item": "lazylazulitraps:diamond_spike_trap"
+				}
+			}
+		}
+	},
+	"requirements": [
+		[
+			"enchant_wood",
+			"enchant_stone",
+			"enchant_iron",
+			"enchant_gold",
+			"enchant_diamond"
+		]
+	]
+}

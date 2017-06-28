@@ -1,0 +1,49 @@
+{
+	"parent": "lazylazulitraps:recipes/root",
+	"rewards": {
+		"recipes": [
+			"lazylazulitraps:smooth_diorite_slab",
+			"lazylazulitraps:black_smooth_diorite_slab",
+			"lazylazulitraps:blue_smooth_diorite_slab",
+			"lazylazulitraps:brown_smooth_diorite_slab",
+			"lazylazulitraps:cyan_smooth_diorite_slab",
+			"lazylazulitraps:gray_smooth_diorite_slab",
+			"lazylazulitraps:green_smooth_diorite_slab",
+			"lazylazulitraps:light_blue_smooth_diorite_slab",
+			"lazylazulitraps:lime_smooth_diorite_slab",
+			"lazylazulitraps:magenta_smooth_diorite_slab",
+			"lazylazulitraps:orange_smooth_diorite_slab",
+			"lazylazulitraps:pink_smooth_diorite_slab",
+			"lazylazulitraps:purple_smooth_diorite_slab",
+			"lazylazulitraps:red_smooth_diorite_slab",
+			"lazylazulitraps:silver_smooth_diorite_slab",
+			"lazylazulitraps:white_smooth_diorite_slab",
+			"lazylazulitraps:yellow_smooth_diorite_slab"
+		]
+	},
+	"criteria": {
+		"has_smooth_diorite": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "minecraft:stone",
+						"data": 4
+					}
+				]
+			}
+		},
+		"has_the_recipe": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "lazylazulitraps:smooth_diorite_slab"
+			}
+		}
+	},
+	"requirements": [
+		[
+			"has_smooth_diorite",
+			"has_the_recipe"
+		]
+	]
+}

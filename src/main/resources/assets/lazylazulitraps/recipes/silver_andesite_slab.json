@@ -1,0 +1,84 @@
+{
+	"type": "forge:ore_shaped",
+	"group": "andesite_slab",
+	"pattern": [ "###", "#X#", "###" ],
+	"key": {
+		"#": [
+			{
+				"item": "lazylazulitraps:andesite_slab",
+				"data": 0,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:andesite_slab",
+				"data": 1,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:andesite_slab",
+				"data": 2,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:andesite_slab",
+				"data": 3,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:andesite_slab",
+				"data": 4,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:andesite_slab",
+				"data": 5,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:andesite_slab",
+				"data": 6,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:andesite_slab",
+				"data": 7,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:andesite_slab",
+				"data": 8,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:andesite_slab",
+				"data": 9,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:andesite_slab",
+				"data": 10,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:andesite_slab",
+				"data": 11,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:andesite_slab",
+				"data": 12,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:andesite_slab",
+				"data": 13,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:andesite_slab",
+				"data": 14,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:andesite_slab",
+				"data": 15,
+				"count": 1
+			}
+		],
+		"X": {
+			"item": "minecraft:dye",
+			"data": 7,
+			"count": 1
+		}
+	},
+	"result": {
+		"item": "lazylazulitraps:andesite_slab",
+		"data": 8,
+		"count": 8
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"display": {
+		"icon": {
+			"item": "lazylazulitraps:iron_spike"
+		},
+		"title": {
+			"translate": "advancements.traps.root.title"
+		},
+		"description": {
+			"translate": "advancements.traps.root.description"
+		},
+		"background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+		"show_toast": false,
+		"announce_to_chat": false
+	},
+	"criteria": {
+		"killed_by_something": {
+			"trigger": "minecraft:entity_killed_player"
+		}
+	},
+	"requirements": [
+		[
+			"killed_by_something"
+		]
+	]
+}

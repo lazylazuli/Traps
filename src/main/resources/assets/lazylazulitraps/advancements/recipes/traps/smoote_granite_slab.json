@@ -1,0 +1,49 @@
+{
+	"parent": "lazylazulitraps:recipes/root",
+	"rewards": {
+		"recipes": [
+			"lazylazulitraps:smooth_granite_slab",
+			"lazylazulitraps:black_smooth_granite_slab",
+			"lazylazulitraps:blue_smooth_granite_slab",
+			"lazylazulitraps:brown_smooth_granite_slab",
+			"lazylazulitraps:cyan_smooth_granite_slab",
+			"lazylazulitraps:gray_smooth_granite_slab",
+			"lazylazulitraps:green_smooth_granite_slab",
+			"lazylazulitraps:light_blue_smooth_granite_slab",
+			"lazylazulitraps:lime_smooth_granite_slab",
+			"lazylazulitraps:magenta_smooth_granite_slab",
+			"lazylazulitraps:orange_smooth_granite_slab",
+			"lazylazulitraps:pink_smooth_granite_slab",
+			"lazylazulitraps:purple_smooth_granite_slab",
+			"lazylazulitraps:red_smooth_granite_slab",
+			"lazylazulitraps:silver_smooth_granite_slab",
+			"lazylazulitraps:white_smooth_granite_slab",
+			"lazylazulitraps:yellow_smooth_granite_slab"
+		]
+	},
+	"criteria": {
+		"has_smooth_granite": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "minecraft:stone",
+						"data": 2
+					}
+				]
+			}
+		},
+		"has_the_recipe": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "lazylazulitraps:smooth_granite_slab"
+			}
+		}
+	},
+	"requirements": [
+		[
+			"has_smooth_granite",
+			"has_the_recipe"
+		]
+	]
+}

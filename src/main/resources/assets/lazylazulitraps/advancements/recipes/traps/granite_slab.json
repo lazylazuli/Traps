@@ -1,0 +1,49 @@
+{
+	"parent": "lazylazulitraps:recipes/root",
+	"rewards": {
+		"recipes": [
+			"lazylazulitraps:granite_slab",
+			"lazylazulitraps:black_granite_slab",
+			"lazylazulitraps:blue_granite_slab",
+			"lazylazulitraps:brown_granite_slab",
+			"lazylazulitraps:cyan_granite_slab",
+			"lazylazulitraps:gray_granite_slab",
+			"lazylazulitraps:green_granite_slab",
+			"lazylazulitraps:light_blue_granite_slab",
+			"lazylazulitraps:lime_granite_slab",
+			"lazylazulitraps:magenta_granite_slab",
+			"lazylazulitraps:orange_granite_slab",
+			"lazylazulitraps:pink_granite_slab",
+			"lazylazulitraps:purple_granite_slab",
+			"lazylazulitraps:red_granite_slab",
+			"lazylazulitraps:silver_granite_slab",
+			"lazylazulitraps:white_granite_slab",
+			"lazylazulitraps:yellow_granite_slab"
+		]
+	},
+	"criteria": {
+		"has_granite": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "minecraft:stone",
+						"data": 1
+					}
+				]
+			}
+		},
+		"has_the_recipe": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "lazylazulitraps:granite_slab"
+			}
+		}
+	},
+	"requirements": [
+		[
+			"has_granite",
+			"has_the_recipe"
+		]
+	]
+}

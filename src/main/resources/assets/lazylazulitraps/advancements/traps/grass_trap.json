@@ -1,0 +1,26 @@
+{
+	"display": {
+		"icon": {
+			"item": "lazylazulitraps:grass_trap"
+		},
+		"title": {
+			"translate": "advancements.traps.grass_trap.title"
+		},
+		"description": {
+			"translate": "advancements.traps.grass_trap.description"
+		}
+	},
+	"parent": "lazylazulitraps:traps/root",
+	"criteria": {
+		"get_grass_trap": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "lazylazulitraps:grass_trap"
+					}
+				]
+			}
+		}
+	}
+}

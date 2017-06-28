@@ -1,0 +1,84 @@
+{
+	"type": "forge:ore_shaped",
+	"group": "diamond_spike_trapdyed",
+	"pattern": [ "###", "#X#", "###" ],
+	"key": {
+		"#": [
+			{
+				"item": "lazylazulitraps:diamond_spike_trap",
+				"data": 0,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:diamond_spike_trap",
+				"data": 1,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:diamond_spike_trap",
+				"data": 2,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:diamond_spike_trap",
+				"data": 3,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:diamond_spike_trap",
+				"data": 4,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:diamond_spike_trap",
+				"data": 5,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:diamond_spike_trap",
+				"data": 6,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:diamond_spike_trap",
+				"data": 7,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:diamond_spike_trap",
+				"data": 8,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:diamond_spike_trap",
+				"data": 9,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:diamond_spike_trap",
+				"data": 10,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:diamond_spike_trap",
+				"data": 11,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:diamond_spike_trap",
+				"data": 12,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:diamond_spike_trap",
+				"data": 13,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:diamond_spike_trap",
+				"data": 14,
+				"count": 1
+			}, {
+				"item": "lazylazulitraps:diamond_spike_trap",
+				"data": 15,
+				"count": 1
+			}
+		],
+		"X": {
+			"item": "minecraft:dye",
+			"data": 5,
+			"count": 1
+		}
+	},
+	"result": {
+		"item": "lazylazulitraps:diamond_spike_trap",
+		"data": 10,
+		"count": 8
+	}
+}

@@ -1,0 +1,49 @@
+{
+	"parent": "lazylazulitraps:recipes/root",
+	"rewards": {
+		"recipes": [
+			"lazylazulitraps:andesite_slab",
+			"lazylazulitraps:black_andesite_slab",
+			"lazylazulitraps:blue_andesite_slab",
+			"lazylazulitraps:brown_andesite_slab",
+			"lazylazulitraps:cyan_andesite_slab",
+			"lazylazulitraps:gray_andesite_slab",
+			"lazylazulitraps:green_andesite_slab",
+			"lazylazulitraps:light_blue_andesite_slab",
+			"lazylazulitraps:lime_andesite_slab",
+			"lazylazulitraps:magenta_andesite_slab",
+			"lazylazulitraps:orange_andesite_slab",
+			"lazylazulitraps:pink_andesite_slab",
+			"lazylazulitraps:purple_andesite_slab",
+			"lazylazulitraps:red_andesite_slab",
+			"lazylazulitraps:silver_andesite_slab",
+			"lazylazulitraps:white_andesite_slab",
+			"lazylazulitraps:yellow_andesite_slab"
+		]
+	},
+	"criteria": {
+		"has_andesite": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "minecraft:stone",
+						"data": 5
+					}
+				]
+			}
+		},
+		"has_the_recipe": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "lazylazulitraps:andesite_slab"
+			}
+		}
+	},
+	"requirements": [
+		[
+			"has_andesite",
+			"has_the_recipe"
+		]
+	]
+}
