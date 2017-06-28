@@ -31,6 +31,11 @@ import static net.minecraft.block.BlockStone.EnumType.GRANITE_SMOOTH;
 public class CommonProxy extends com.github.lazylazuli.lib.common.CommonProxy implements BlockRegistry, ItemRegistry,
 		CreativeTabRegistry
 {
+	public CommonProxy()
+	{
+		super(Traps.instance);
+	}
+	
 	@Override
 	public void preInit(FMLPreInitializationEvent event)
 	{
