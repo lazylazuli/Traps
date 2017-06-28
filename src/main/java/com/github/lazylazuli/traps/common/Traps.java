@@ -20,7 +20,7 @@ public class Traps extends LazyLazuliMod
 	public static final String MCVERSION = "1.12";
 	
 	public static final String VERSION = "2.0.0";
-	public static final String BUILD = "41";
+	public static final String BUILD = "52";
 	
 	public static final String UPDATE = "https://github.com/lazylazuli/Traps/releases/download/Latest/update.json";
 	
